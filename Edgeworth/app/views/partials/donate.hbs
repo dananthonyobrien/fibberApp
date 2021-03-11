@@ -1,23 +1,36 @@
-<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-  <form class="uk-form-stacked uk-text-left" action="/donate" method="POST">
+<div class="uk-margin uk-width-1xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+  <form class="uk-form-stacked uk-text-left" action="/submit" method="POST">
+    <legend class="uk-legend">Submit an Irish Scientist or Inventor</legend>
+    <legend class="uk-legend">or Place of Scientific Interest</legend>
     <div class="uk-grid uk-grid-stack">
       <div class="uk-width-1-2@m">
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Enter Fact</label>
+          <label class="uk-form-label" for="form-stacked-text">Name</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="number" name="amount" placeholder="Euros">
+            <input class="uk-input" id="form-stacked-text" type="string" name="name" placeholder="Birr Castle">
+          </div>
+          <div class="uk-form-label">Type</div>
+          <div class="uk-form-controls">
+            <label><input class="uk-radio" type="radio" name="method" value="person"> Person </label><br> 
+            <label><input class="uk-radio" type="radio" name="method" value="place"> Place </label>
+          </div>
+          <label class="uk-form-label" for="form-stacked-text">Description</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="form-stacked-text" type="string" name="description" placeholder="Home of largest telescope of 1800s">
+          </div>
+          <label class="uk-form-label" for="form-stacked-text">Location</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="form-stacked-text" type="string" name="location" placeholder="Birr, Offaly">
+          </div>
+          <label class="uk-form-label" for="form-stacked-text">Image</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="form-stacked-text" type="image" name="image" placeholder="Upload">
           </div>
         </div>
         <div class="uk-margin">
-          <div class="uk-form-label">Fact Type</div>
-          <div class="uk-form-controls">
-            <label><input class="uk-radio" type="radio" name="method" value="bio-fact"> Biographical </label><br> 
-            <label><input class="uk-radio" type="radio" name="method" value="science-fact"> Scientific </label>
-            <label><input class="uk-radio" type="radio" name="method" value="other-fact"> Other </label>
-          </div>
         </div>
-      </div>
-      <div class=" uk-width-1-2@m">
+      <!---</div>--->
+      <!---<div class=" uk-width-1-2@m">
         <div class="uk-margin uk-text-left">
           <div class="uk-form-label">Select Scientist</div>
           <div class="uk-form-controls ">
@@ -26,7 +39,7 @@
                 {{lastName}}, {{firstName}}</label> <br>
             {{/each}}
           </div>
-        </div>
+        </div>--->
         <div class="uk-margin">
           <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Submit</button>
         </div>
