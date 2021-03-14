@@ -1,40 +1,23 @@
 <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
   <table class="uk-table">
     <caption>
-      Ireland's Scientists and Places of Scientific Interest
+      Contributions to Date
     </caption>
     <thead>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Location</th>
-      <!---<th>Image</th>--->
+      <th>Amount</th>
+      <th>Method contributed</th>
+      <th>Donor</th>
+      <th>Candidate</th>
     </thead>
     <tbody class="uk-text-left">
-      {{#each contribution}}
+      {{#each contributions}}
         <tr>
-          <td>{{name}}</td>
-          <td>{{type}}</td>
-          <td>{{description}}</td>
-          <td>{{location}}</td>
-          <!---<td>{{image}}</td>--->
-          <td> {{user.firstName}} {{user.lastName}} </td>
-         <!--- <td>{{candidate.lastName}}, {{candidate.firstName}}</td> --->
+          <td>{{amount}}</td>
+          <td>{{method}}</td>
+          <td> {{donor.firstName}} {{donor.lastName}} </td>
+          <td>{{candidate.lastName}}, {{candidate.firstName}}</td>
         </tr>
       {{/each}}
     </tbody>
   </table>
 </div>
-
-
-
- <!---<tbody class="uk-text-left">
-      {{#each donations}}
-        <tr>
-          <td>{{name}}</td>
-          <td>{{type}}</td>
-          <td> {{donor.firstName}} {{donor.lastName}} </td>
-          <td>{{candidate.lastName}}, {{candidate.firstName}}</td>
-        </tr>
-      {{/each}}
-    </tbody> --->

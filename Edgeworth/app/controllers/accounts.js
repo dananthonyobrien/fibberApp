@@ -29,7 +29,8 @@ const Accounts = {
         abortEarly: false,
       },
       failAction: function (request, h, error) {
-        return h.view("signup", {
+        return h
+          .view("signup", {
             title: "Sign up error",
             errors: error.details,
           })
@@ -112,7 +113,7 @@ const Accounts = {
       try {
         const id = request.auth.credentials.id;
         const user = await User.findById(id).lean();
-        return h.view("settings", { title: "Contributions Settings", user: user });
+        return h.view("settings", { title: "Contribution Settings", user: user });
       } catch (err) {
         return h.view("login", { errors: [{ message: err.message }] });
       }
