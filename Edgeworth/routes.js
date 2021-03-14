@@ -1,7 +1,7 @@
 "use strict";
 
 const Accounts = require("./app/controllers/accounts");
-const Donations = require("./app/controllers/donations");
+const Contributions = require("./app/controllers/contributions");
 
 module.exports = [
   { method: "GET", path: "/", config: Accounts.index },
@@ -13,9 +13,9 @@ module.exports = [
   { method: 'GET', path: '/settings', config: Accounts.showSettings },
   { method: 'POST', path: '/settings', config: Accounts.updateSettings },
 
-  { method: "GET", path: "/home", config: Donations.home },
-  { method: "POST", path: "/donate", config: Donations.donate },
-  { method: "GET", path: "/report", config: Donations.report },
+  { method: "GET", path: "/home", config: Contributions.home },
+  { method: "POST", path: "/contribute", config: Contributions.contribute },
+  { method: "GET", path: "/report", config: Contributions.report },
 
   {
     method: "GET",
