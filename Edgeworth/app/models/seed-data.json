@@ -2,22 +2,22 @@
   "users": {
     "_model": "User",
     "homer": {
-      "firstName": "Homer",
-      "lastName": "Simpson",
-      "email": "homer@simpson.com",
-      "password": "secret"
+      "firstName": "Jim",
+      "lastName": "Hurley",
+      "email": "jh@gmail.com",
+      "password": "1234"
     },
     "marge": {
-      "firstName": "Marge",
-      "lastName": "Simpson",
-      "email": "marge@simpson.com",
-      "password": "secret"
+      "firstName": "Frank",
+      "lastName": "Mahony",
+      "email": "fm@gmail.com",
+      "password": "1234"
     },
     "bart": {
-      "firstName": "Bart",
-      "lastName": "Simpson",
-      "email": "bart@simpson.com",
-      "password": "secret"
+      "firstName": "Matt",
+      "lastName": "Conlon",
+      "email": "mc@gmail.com",
+      "password": "1234"
     }
   },
   "contributions": {
@@ -27,14 +27,14 @@
       "type": "place",
       "description": "Observatory",
       "location": "Cork",
-      "contributor": "->users.bart"
+      "contributor": "->users.frank"
     },
     "two": {
       "name": "Dark Sky",
       "type": "place",
       "description": "National park for sky gazing",
       "location": "Kerry",
-      "contributor": "->users.bart"
+      "contributor": "->users.matt"
     }
   }
 }
