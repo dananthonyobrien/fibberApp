@@ -7,14 +7,14 @@ const Contributions = {
   home: {
     handler: async function (request, h) {
       const candidates = await Candidate.find().lean();
-      return h.view("home", { title: "Make a Contribution", candidates: candidates });
+      return h.view("home", { title: "Make a Contribution" });
     },
   },
   report: {
     handler: async function (request, h) {
-      const contributions = await Contribution.find().populate("donor").populate("candidate").lean();
+      const contributions = await Contribution.find().populate("contributor").lean();
       return h.view("report", {
-        title: "Contributions to Date",
+        title: "Contributions",
         contributions: contributions,
       });
     },
@@ -25,18 +25,12 @@ const Contributions = {
         const id = request.auth.credentials.id;
         const user = await User.findById(id);
         const data = request.payload;
-
-        const rawCandidate = request.payload.candidate.split(",");
-        const candidate = await Candidate.findOne({
-          lastName: rawCandidate[0],
-          firstName: rawCandidate[1],
-        });
-
         const newContribution = new Contribution({
-          amount: data.amount,
-          method: data.method,
-          donor: user._id,
-          candidate: candidate._id,
+          name: data.name,
+          type: data.type,
+          description: data.description,
+          location: data.location,
+          contributor: user._id,
         });
         await newContribution.save();
         return h.redirect("/report");

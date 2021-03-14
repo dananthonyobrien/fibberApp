@@ -1,21 +1,26 @@
 <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+  <legend class="uk-legend">Welcome: {{user.firstName}} {{user.lastName}}</legend>
+</div>
+<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
   <table class="uk-table">
     <caption>
-      Contributions to Date
+      Contributions
     </caption>
     <thead>
-      <th>Amount</th>
-      <th>Method contributed</th>
-      <th>Donor</th>
-      <th>Candidate</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Contributor</th>
     </thead>
     <tbody class="uk-text-left">
       {{#each contributions}}
         <tr>
-          <td>{{amount}}</td>
-          <td>{{method}}</td>
-          <td> {{donor.firstName}} {{donor.lastName}} </td>
-          <td>{{candidate.lastName}}, {{candidate.firstName}}</td>
+          <td>{{name}}</td>
+          <td>{{type}}</td>
+          <td>{{description}}</td>
+          <td>{{location}}</td>
+          <td>{{contributor.firstName}} {{contributor.lastName}}</td>
         </tr>
       {{/each}}
     </tbody>

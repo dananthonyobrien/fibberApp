@@ -1,31 +1,41 @@
 <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+  <legend class="uk-legend">Welcome: {{user.firstName}} {{user.lastName}}</legend>
+</div>
+<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
   <form class="uk-form-stacked uk-text-left" action="/contribute" method="POST">
     <div class="uk-grid uk-grid-stack">
       <div class="uk-width-1-2@m">
+        <legend class="uk-legend">Contribute an Irish Scientist or Place of Scientific Interest</legend>
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Enter amount</label>
+          <label class="uk-form-label" for="form-stacked-text">Name</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="number" name="amount" placeholder="Euros">
+            <input class="uk-input" id="form-stacked-text" type="string" name="amount" placeholder="Name of scientist or place">
           </div>
         </div>
         <div class="uk-margin">
-          <div class="uk-form-label">Payment</div>
+          <div class="uk-form-label">Type</div>
           <div class="uk-form-controls">
-            <label><input class="uk-radio" type="radio" name="method" value="paypal"> Paypal </label><br> <label><input
-            class="uk-radio" type="radio" name="method" value="direct"> Cash </label>
+            <label><input class="uk-radio" type="radio" name="method" value="person"> Person </label><br> 
+            <label><input class="uk-radio" type="radio" name="method" value="place"> Place </label>
           </div>
         </div>
       </div>
       <div class=" uk-width-1-2@m">
-        <div class="uk-margin uk-text-left">
-          <div class="uk-form-label">Select Candidate</div>
-          <div class="uk-form-controls ">
-            {{#each candidates }}
-              <label> <input class="uk-radio" type="radio" name="candidate" value="{{lastName}},{{firstName}}">
-                {{lastName}}, {{firstName}}</label> <br>
-            {{/each}}
-          </div>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-stacked-text" type="string" name="description" placeholder="Description of scientist or place">
         </div>
+      </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Location</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select" placeholder= "location">
+              <option>Choose Province</option>
+              <option>Munster</option>
+              <option>Connaught</option>
+              <option>Ulster</option>
+              <option>Leinster</option>
+            </select>
+          </div>
         <div class="uk-margin">
           <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Contribute</button>
         </div>

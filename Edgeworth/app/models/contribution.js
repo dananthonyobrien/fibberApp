@@ -4,15 +4,13 @@ const Mongoose = require("mongoose");
 const Schema = Mongoose.Schema;
 
 const contributionSchema = new Schema({
-  amount: Number,
-  method: String,
-  donor: {
+  name: String,
+  type: String,
+  description: String,
+  location: String,
+  contributor: {
     type: Schema.Types.ObjectId,
     ref: "User",
-  },
-  candidate: {
-    type: Schema.Types.ObjectId,
-    ref: "Candidate",
   },
 });
 
