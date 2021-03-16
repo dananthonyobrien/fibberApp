@@ -15,6 +15,7 @@ module.exports = [
 
   { method: "GET", path: "/home", config: Contributions.home },
   { method: "POST", path: "/contribute", config: Contributions.contribute },
+  { method: "GET", path: "/contribute", config: Contributions.welcome },
   { method: "GET", path: "/report", config: Contributions.report },
 
   {
