@@ -19,16 +19,6 @@ const Contributions = {
       });
     },
   },
-
-  welcome: {
-    handler: async function (request, h){
-      const user = await User.getUserById(id);
-      return h.view("welcome", {
-        title: "User",
-        user: user,
-      });
-    }
-  },
   contribute: {
     handler: async function (request, h) {
       try {
