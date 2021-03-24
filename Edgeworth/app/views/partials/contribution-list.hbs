@@ -1,11 +1,6 @@
-<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-  <legend class="uk-legend">Welcome: {{user.firstName}} {{user.lastName}}</legend>
-</div>
-<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+<div class=" uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow">
+  <header class="uk-heading-small">Map of Irish Science</header>
   <table class="uk-table">
-    <caption>
-      Contributions
-    </caption>
     <thead>
       <th>Name</th>
       <th>Type</th>
@@ -25,4 +20,7 @@
       {{/each}}
     </tbody>
   </table>
+  <a href="/home">Add Scientist or Location
+    <i class="fas fa-vial fa-3x" style="color:rgb(153, 196, 74)" title="Contribute" pos="bottom" uk-tooltip></i>
+  </a>
 </div>

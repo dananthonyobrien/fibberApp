@@ -1,10 +1,9 @@
-<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-  <legend class="uk-legend">Welcome: {{user.firstName}} {{user.lastName}}</legend>
-</div>
-<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
-  <form class="uk-form-stacked uk-text-left" action="/contribute" method="POST">
-    <div class="uk-grid uk-grid-stack">
-      <div class="uk-width-1-2@m">
+<!---<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+   <legend class="uk-legend">Welcome: {{user.firstName}} {{user.lastName}}</legend> 
+</div>--->
+<div>
+  <form class="uk-form-stacked" action="/contribute" method="POST">
+      <div>
         <legend class="uk-legend">Contribute an Irish Scientist or Place of Scientific Interest</legend>
         <div class="uk-margin">
           <label class="uk-form-label" for="form-stacked-text">Name</label>
@@ -23,7 +22,7 @@
             </select>
           </div>
           </div>
-      <div class=" uk-width-1-2@m">
+      <div class=" uk-margin">
         <div class="uk-form-label">Description</div>
         <div class="uk-form-controls">
             <input class="uk-input" id="form-stacked-text" type="string" name="description" placeholder="Description of scientist or place">
