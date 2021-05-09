@@ -6,7 +6,7 @@
 <div class="uk-container uk-margin">
   <div class="uk-child-width-expand uk-flex-center uk-flex-middle uk-text-center" uk-grid>
     <div>
-      <img width="300" src="images/optical2.png">
+      <img width="300" src="images/optical.png">
     </div>
     <div>
       <div class="uk-card uk-card-default uk-card-body uk-box-shadow-large">
@@ -15,26 +15,28 @@
           <div class="uk-margin">
             <div class="uk-inline uk-width-1-1">
               <span class="uk-form-icon" uk-icon="icon: user"></span> <input class="uk-input uk-form-large" type="text"
-                                                                             name="firstName">
+                                                                             name="firstName" minlength="2" maxlength="20" require="require">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-inline uk-width-1-1">
-              <span class="uk-form-icon" uk-icon="icon: user"></span> <input class="uk-input uk-form-large" type="text"
-                                                                             name="lastName">
+              <span class="uk-form-icon" uk-icon="icon: user"></span> <input class="uk-input uk-form-large" minlength="2" maxlength="20" type="text"
+                                                                             name="lastName" require="require">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-inline uk-width-1-1">
-              <span class="uk-form-icon" uk-icon="icon: mail"></span> <input class="uk-input uk-form-large" type="text"
-                                                                             name="email">
+              <span class="uk-form-icon" uk-icon="icon: mail"></span> <input class="uk-input uk-form-large" type="email"
+                                                                             name="email" minlength="3" maxlength="30">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-inline uk-width-1-1">
               <span class="uk-form-icon" uk-icon="icon: lock"></span> <input class="uk-input uk-form-large"
-                                                                             type="password" name="password">
+                                                                             type="password" name="password" 
+                                                                             pattern ="^(?=.*[0-9])(?=.*[A-Za-z]).{10,20}">
             </div>
+            <p>Note: Password must contain letters and numbers, no special characters, and be between 10 and 20 characters long</p>
           </div>
           <div class="uk-margin">
             <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Sign up</button>

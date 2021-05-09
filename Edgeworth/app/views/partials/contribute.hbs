@@ -8,13 +8,13 @@
         <div class="uk-margin">
           <label class="uk-form-label" for="form-stacked-text">Name</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="string" name="name" placeholder="Name of scientist or place">
+            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name" placeholder="Name of scientist or place">
           </div>
         </div>
         <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text">Type</label>
           <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" type="string" name="type" placeholder= "Person or Place">
+            <select class="uk-select" id="form-stacked-select" type="string" name="type" placeholder= "Person or Place" readonly="true">
               <option></option>
               <option>Person</option>
               <option>Place</option>
@@ -31,7 +31,7 @@
       <div class="uk-margin">
         <label class="uk-form-label" for="form-stacked-text">Location</label>
           <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" type="string" name="location" placeholder= "location">
+            <select class="uk-select" id="form-stacked-select" type="string" name="location" placeholder= "location" readonly="true">
               <option></option>
               <option>Munster</option>
               <option>Connaught</option>

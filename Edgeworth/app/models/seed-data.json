@@ -5,19 +5,19 @@
       "firstName": "John",
       "lastName": "Turley",
       "email": "jt@gmail.com",
-      "password": "secret"
+      "password": "$2a$10$HnapEWWKQQ0.0Ft33nXxtuJ0fsmd9ywYswEzT4C.6Ul5y6cOU.UEa"
     },
     "frank": {
       "firstName": "Frank",
       "lastName": "Stevens",
       "email": "ft@gmail.com",
-      "password": "secret"
+      "password": "$2a$10$D3TWK8MSAh63Lhk4gIFSJ.ekM368J88qJRUYSbuBfzffex6B0dFwK"
     },
     "mark": {
       "firstName": "Mark",
       "lastName": "Glesson",
       "email": "mg@gmail.com",
-      "password": "secret"
+      "password": "$2a$10$uqnPlgyVjBEOtcgMhn/WRO3FwW4T9gX36tTB4RqpGeB/LkCR3YQuO"
     }
   },
   "contributions": {
@@ -69,34 +69,6 @@
       "type": "person",
       "description": "Guglielmo Marconi (1874–1937) was an Italian inventor and electrical engineer, known for his pioneering work on long-distance radio transmission, for which he shared the 1909 Nobel Prize in Physics for the development of wireless telegraphy.",
       "location": "Connaught",
-      "contributor": "->users.john"
-    },
-    "eight": {
-      "name": "Francis Beaufort",
-      "type": "person",
-      "description": "Beaufort invented the Beaufort scale to measure wind conditions.",
-      "location": "Munster",
-      "contributor": "->users.john"
-    },
-    "nine": {
-      "name": "Francis Beaufort",
-      "type": "person",
-      "description": "Beaufort invented the Beaufort scale to measure wind conditions.",
-      "location": "Munster",
-      "contributor": "->users.john"
-    },
-    "ten": {
-      "name": "Francis Beaufort",
-      "type": "person",
-      "description": "Beaufort invented the Beaufort scale to measure wind conditions.",
-      "location": "Munster",
-      "contributor": "->users.john"
-    },
-    "eleven": {
-      "name": "Francis Beaufort",
-      "type": "person",
-      "description": "Beaufort invented the Beaufort scale to measure wind conditions.",
-      "location": "Munster",
       "contributor": "->users.john"
     }
   }

@@ -28,4 +28,13 @@ module.exports = [
     },
     options: { auth: false },
   },
+  // Route added to test XSS vurnerability
+  {
+    method: 'GET',
+    path: '/welcome/{user}',
+    handler: function (request, reply) {
+        return 'Welcome ' + request.params.user;
+    },
+    config: {auth: false}
+},
 ];

@@ -11,7 +11,8 @@
     <tbody class="uk-text-left">
       {{#each contributions}}
         <tr>
-          <td>{{name}}</td>
+          <!-- Added extra pair of curly brackets for cross-site scripting test-->
+          <td>{{{name}}}</td>
           <td>{{type}}</td>
           <td>{{description}}</td>
           <td>{{location}}</td>

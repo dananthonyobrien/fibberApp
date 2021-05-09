@@ -9,7 +9,19 @@ const Joi = require("@hapi/joi");
 require("./app/models/db");
 const env = require("dotenv");
 
+
 const dotenv = require("dotenv");
+
+//TLS
+//const fs = require('fs');
+//const server = Hapi.server({
+// port: 3443,
+// tls: {
+//       key: fs.readFileSync('keys/private/webserver.key'),
+//       cert: fs.readFileSync('keys/webserver.crt')
+// }
+//});
+
 
 const result = dotenv.config();
 if (result.error) {

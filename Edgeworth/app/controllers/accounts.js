@@ -2,6 +2,8 @@
 const User = require("../models/user");
 const Boom = require("@hapi/boom");
 const Joi = require("@hapi/joi");
+const bcrypt = require("bcrypt");         
+const saltRounds = 10;                     
 
 const Accounts = {
   index: {
@@ -23,7 +25,7 @@ const Accounts = {
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
         email: Joi.string().email().required(),
-        password: Joi.string().required(),
+        password: Joi.string().required().alphanum().min(10).max(20),
       },
       options: {
         abortEarly: false,
@@ -46,11 +48,14 @@ const Accounts = {
           const message = "Email address is already registered";
           throw Boom.badData(message);
         }
+
+        const hash = await bcrypt.hash(payload.password, saltRounds);
+
         const newUser = new User({
           firstName: payload.firstName,
           lastName: payload.lastName,
           email: payload.email,
-          password: payload.password,
+          password: hash
         });
         user = await newUser.save();
         request.cookieAuth.set({ id: user.id });
@@ -71,7 +76,7 @@ const Accounts = {
     validate: {
       payload: {
         email: Joi.string().email().required(),
-        password: Joi.string().required(),
+        password: Joi.string().required().alphanum().min(10).max(20),
       },
       options: {
         abortEarly: false,
@@ -94,7 +99,7 @@ const Accounts = {
           const message = "Email address is not registered";
           throw Boom.unauthorized(message);
         }
-        user.comparePassword(password);
+        await user.comparePassword(password);
         request.cookieAuth.set({ id: user.id });
         return h.redirect("/home");
       } catch (err) {
@@ -148,7 +153,7 @@ const Accounts = {
         user.firstName = userEdit.firstName;
         user.lastName = userEdit.lastName;
         user.email = userEdit.email;
-        user.password = userEdit.password;
+        user.password = userEdit.password; //user.password = hash;
         await user.save();
         return h.redirect("/settings");
       } catch (err) {
