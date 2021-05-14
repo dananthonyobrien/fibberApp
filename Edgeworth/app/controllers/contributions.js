@@ -2,6 +2,8 @@
 const Contribution = require("../models/contribution");
 const User = require("../models/user");
 const Candidate = require("../models/candidate");
+var sanitizeHtml = require('sanitize-html'); //Added sanitizeHtml to sanitize user input
+
 
 const Contributions = {
   home: {
@@ -26,10 +28,10 @@ const Contributions = {
         const user = await User.findById(id);
         const data = request.payload;
         const newContribution = new Contribution({
-          name: data.name,
-          type: data.type,
-          description: data.description,
-          location: data.location,
+          name: sanitizeHtml(data.name),                // sanitize user input
+          type: sanitizeHtml(data.type),                // sanitize user input 
+          description: sanitizeHtml(data.description),  // sanitize user input
+          location: sanitizeHtml(data.location),        // sanitize user input
           contributor: user._id,
         });
         await newContribution.save();

@@ -2,7 +2,9 @@
 const User = require("../models/user");
 const Boom = require("@hapi/boom");
 const Joi = require("@hapi/joi");
-const bcrypt = require("bcrypt");         
+const bcrypt = require("bcrypt");    // Added bcrypt for password hashing
+const disinfect = require ("disinfect");  //Added disinfect to sanitise user input   
+var sanitizeHtml = require('sanitize-html'); //Added sanitizeHtml to sanitize user input
 const saltRounds = 10;                     
 
 const Accounts = {
@@ -22,9 +24,9 @@ const Accounts = {
     auth: false,
     validate: {
       payload: {
-        firstName: Joi.string().required(),
-        lastName: Joi.string().required(),
-        email: Joi.string().email().required(),
+        firstName: Joi.string().required('disinfect'),
+        lastName: Joi.string().required('disinfect'),
+        email: Joi.string().email().required('disinfect'),
         password: Joi.string().required().alphanum().min(10).max(20),
       },
       options: {
@@ -52,11 +54,12 @@ const Accounts = {
         const hash = await bcrypt.hash(payload.password, saltRounds);
 
         const newUser = new User({
-          firstName: payload.firstName,
-          lastName: payload.lastName,
-          email: payload.email,
+          firstName: sanitizeHtml(payload.firstName), // sanitize user input
+          lastName: sanitizeHtml(payload.lastName),   // sanitize user input
+          email: sanitizeHtml(payload.email),         // sanitize user input
           password: hash
         });
+        
         user = await newUser.save();
         request.cookieAuth.set({ id: user.id });
         return h.redirect("/home");
