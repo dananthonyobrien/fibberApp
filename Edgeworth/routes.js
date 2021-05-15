@@ -12,7 +12,6 @@ module.exports = [
   { method: "POST", path: "/login", config: Accounts.login },
   { method: 'GET', path: '/settings', config: Accounts.showSettings },
   { method: 'POST', path: '/settings', config: Accounts.updateSettings },
-
   { method: "GET", path: "/home", config: Contributions.home },
   { method: "POST", path: "/contribute", config: Contributions.contribute },
   { method: "GET", path: "/contribute", config: Contributions.contribute },

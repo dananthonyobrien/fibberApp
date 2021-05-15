@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "mocha -u tdd"
+  },  
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -20,12 +20,16 @@
     "disinfect": "^1.1.0",
     "dotenv": "^8.2.0",
     "handlebars": "^4.7.7",
+    "lodash": "^4.17.21",
     "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^5.12.0",
     "sanitize": "^2.1.0",
     "sanitize-html": "^2.3.3"
   },
   "devDependencies": {
+    "axios": "^0.21.1",
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0",
     "prettier": "^2.2.1"
   },
   "prettier": {

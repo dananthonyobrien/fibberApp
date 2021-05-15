@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 
 const axios = require("axios");
 const baseUrl = "http://localhost:3000";
@@ -29,4 +29,4 @@ class DonationService {
   }
 }
 
-module.exports = EdgeworthService;
+module.exports = EdgeworthService; */
