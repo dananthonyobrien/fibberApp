@@ -1,4 +1,5 @@
-![](https://github.com/dananthonyobrien/Edgeworth-POI-Project/blob/main/Edgeworth/public/images/Screenshot%202021-03-24%20at%2021.55.16.png)
+![](https://github.com/dananthonyobrien/Edgeworth-POI-Project/blob/main/Edgeworth/public/images/edgeworth-logo.png)
+
 
 # Edgeworth: The Map of Irish Science
 Edgeworth is an interactive Point of Interest (POI) map that allows users to view and add profiles of Irish scientists and places of scientific interest.
