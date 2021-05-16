@@ -17,7 +17,9 @@
           <td>{{description}}</td>
           <td>{{location}}</td>
           <td>{{contributor.firstName}} {{contributor.lastName}}</td>
+          <td><a href="/report/deleteOne/${contribution.id}" uk-icon="trash"></td>
         </tr>
+        
       {{/each}}
     </tbody>
   </table>

@@ -16,6 +16,9 @@ module.exports = [
   { method: "POST", path: "/contribute", config: Contributions.contribute },
   { method: "GET", path: "/contribute", config: Contributions.contribute },
   { method: "GET", path: "/report", config: Contributions.report },
+  // { method: 'POST', path: '/contribute', config: Contributions.deleteOne },// Added delete contribution route
+  // { method: 'DELETE', path: '/contributions', config: Contributions.deleteAll }
+  // { method: "GET", path: "report/delete/{id}", config: Contributions.report},  
 
   {
     method: "GET",
