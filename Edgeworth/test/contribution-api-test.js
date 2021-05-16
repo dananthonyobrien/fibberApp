@@ -20,5 +20,24 @@ suite("Contribution API tests", function () {
     assert.equal(oneContribution.name, "Robert Boyle");
     assert.equal(oneContribution.type, "person");
     assert.equal(oneContribution.location, "Munster");
-  });
+  }); 
+
+  /*test("create a contribution", async function () {
+    const contributionUrl = "http://localhost:3000/api/contributions";
+    const newContribution = {
+      name: "Robert Doyle",
+      type: "person",
+      location: "Munster"
+
+    };
+
+    const response = await axios.post(contributionUrl, newContribution);
+    const returnedContribution = response.data;
+    assert.equal(201, response.status);
+
+    assert.equal(returnedContribution.name, "Robert Doyle");
+    assert.equal(returnedContribution.type, "person");
+    assert.equal(returnedContribution.location, "Munster");
+  }); 
+  */
 });

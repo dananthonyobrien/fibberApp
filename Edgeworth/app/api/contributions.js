@@ -26,6 +26,37 @@ const Contributions = {
   }
   },
 },
+create: {
+  auth: false,
+  handler: async function (request, h) {
+    const newCandidate = new Candidate(request.payload);
+    const candidate = await newCandidate.save();
+    if (candidate) {
+      return h.response(candidate).code(201);
+    }
+    return Boom.badImplementation("error creating candidate");
+  },
+},
+
+deleteAll: {
+  auth: false,
+  handler: async function (request, h) {
+    await Contribution.remove({});
+    return { success: true };
+  },
+},
+
+deleteOne: {
+  auth: false,
+  handler: async function (request, h) {
+    const contribution = await Contribution.remove({ _id: request.params.id });
+    if (contribution) {
+      return { success: true };
+    }
+    return Boom.notFound("id not found");
+  },
+},
+
 };
 
 module.exports = Contributions;
