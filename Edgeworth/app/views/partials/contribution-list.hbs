@@ -7,6 +7,7 @@
       <th>Description</th>
       <th>Location</th>
       <th>Contributor</th>
+      <th>Options</th>
     </thead>
     <tbody class="uk-text-left">
       {{#each contributions}}
@@ -17,7 +18,10 @@
           <td>{{description}}</td>
           <td>{{location}}</td>
           <td>{{contributor.firstName}} {{contributor.lastName}}</td>
-          <td><a href="/report/deleteOne/${contribution.id}" uk-icon="trash"></td>
+          <td><a href="/delete-contribution/{{_id}}" uk-icon="trash"></td> 
+          <!-- /contribute/deleteOne/${contribution.id}-->
+          <!--<td><a onclick="deleteContribution('${contribution.id}')" uk-icon="trash"></td> --> <!-- /contribute/deleteOne/${contribution.id}-->
+
         </tr>
         
       {{/each}}

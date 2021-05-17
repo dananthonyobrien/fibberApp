@@ -3,6 +3,7 @@ const Contribution = require("../models/contribution");
 const User = require("../models/user");
 const Candidate = require("../models/candidate");
 var sanitizeHtml = require('sanitize-html'); //Added sanitizeHtml to sanitize user input
+const { logger } = require("handlebars");
 
 
 const Contributions = {
@@ -41,6 +42,38 @@ const Contributions = {
       }
     },
   },
+  
+  deleteContribution: {
+    auth: false,    
+    handler: async function (request, h) {
+      const contribution = Contribution.findById(request.params._id);
+          console.log("Removing contribution: " + contribution);
+          await contribution.deleteOne();
+          return h.redirect("/report"); 
+        }
+      },
+
+  
+  /*deleteOne: {
+    auth: false,
+    handler: async function (request, h) {
+      //const contributionId = request.params.id;
+      //contribution.removeContribution(contributionId);
+      //return h.direct('/report');
+
+      const contribution = await Contribution.remove({ _id: request.params.id });
+      if (contribution) {
+        return h.redirect("/report");
+        //return h.view("report", {
+        //  contributions: contributions,
+        //});
+      }
+      return Boom.notFound("id not found");
+    }, 
+  },*/
+
+
 };
 
 module.exports = Contributions;
+
