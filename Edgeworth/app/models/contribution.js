@@ -8,6 +8,7 @@ const contributionSchema = new Schema({
   type: String,
   description: String,
   location: String,
+  like: Number,
   contributor: {
     type: Schema.Types.ObjectId,
     ref: "User",

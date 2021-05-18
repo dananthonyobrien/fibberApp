@@ -4,6 +4,7 @@ const User = require("../models/user");
 const Candidate = require("../models/candidate");
 var sanitizeHtml = require('sanitize-html'); //Added sanitizeHtml to sanitize user input
 const { logger } = require("handlebars");
+const Joi = require("@hapi/joi");
 
 
 const Contributions = {
@@ -33,6 +34,7 @@ const Contributions = {
           type: sanitizeHtml(data.type),                // sanitize user input 
           description: sanitizeHtml(data.description),  // sanitize user input
           location: sanitizeHtml(data.location),        // sanitize user input
+          likes: data.like,   //added like for like button
           contributor: user._id,
         });
         await newContribution.save();
@@ -42,7 +44,7 @@ const Contributions = {
       }
     },
   },
-  
+  // Delete method added
   deleteContribution: {
     auth: false,    
     handler: async function (request, h) {
@@ -54,24 +56,68 @@ const Contributions = {
       },
 
   
-  /*deleteOne: {
-    auth: false,
-    handler: async function (request, h) {
-      //const contributionId = request.params.id;
-      //contribution.removeContribution(contributionId);
-      //return h.direct('/report');
-
-      const contribution = await Contribution.remove({ _id: request.params.id });
-      if (contribution) {
-        return h.redirect("/report");
-        //return h.view("report", {
-        //  contributions: contributions,
-        //});
+  showContribution: {
+      handler: async function(request, h) {
+        const contribution = Contribution.findById(request.params._id);
+        return h.view("contribute", { title: "Edit Contribution", user: user });
       }
-      return Boom.notFound("id not found");
-    }, 
-  },*/
+    },
 
+
+    updateContribution: {
+      handler: async function(request, h) {
+        const contribution = Contribution.findById(request.params._id);
+        return h.view("contribute", { title: "Edit Contribution", user: user });
+      },
+      validate: {
+        payload: {
+          name: Joi.string().required(),
+          type: Joi.string().required(),
+          descritption: Joi.string().email().required(),
+          location: Joi.string().required(),
+        },
+        options: {
+          abortEarly: false,
+        },
+        failAction: function (request, h, error) {
+          return h
+            .view("contribute", {
+              title: "Sign up error",
+              errors: error.details,
+            })
+            .takeover()
+            .code(400);
+        },
+      },
+      handler: async function (request, h) {
+          const contributionEdit = request.payload;
+          const contribution = Contribution.findById(request.params._id); //cut as contribution already defined above in render?
+          contribution.name = contributionEdit.name;
+          contribution.type = contributionEdit.type;
+          contribution.description = contributionEdit.description;
+          contribution.location = contributionEdit.location;
+          await contribution.save();
+          return h.redirect("/report");
+        
+        }
+      },
+    
+
+    likeContribution: {
+      auth: false,    
+      handler: async function (request, h) {
+        const contribution = Contribution.findById(request.params._id);
+            let like = 0;
+            let likes = like + 1;
+            console.log("Contribution " + contribution + "has" + likes + "likes" );
+            
+
+
+            return h.redirect("/report", {
+              like: like,
+            });
+          }
+        }, 
 
 };
 
