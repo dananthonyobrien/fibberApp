@@ -18,9 +18,10 @@ module.exports = [
   { method: "GET", path: "/report", config: Contributions.report },
   { method: 'GET', path: '/delete-contribution/{_id}', config: Contributions.deleteContribution }, // Delete contribution route
   { method: 'GET', path: '/like-contribution/{_id}', config: Contributions.likeContribution }, // Delete contribution route
+  { method: 'GET', path: '/update-contribution/{_id}', config: Contributions.showContribution },
   { method: 'POST', path: '/update-contribution/{_id}', config: Contributions.updateContribution },
-  { method: 'GET', path: '/show-contribution/{_id}', config: Contributions.showContribution },
-  { method: 'GET', path: '/edit-contribution/{_id}', config: Contributions.showContribution },
+  //{ method: 'GET', path: '/show-contribution/{_id}', config: Contributions.showContribution },
+  //{ method: 'GET', path: '/edit-contribution/{_id}', config: Contributions.showContribution },
 
   {
     method: "GET",

@@ -99,17 +99,20 @@ const Contributions = {
       handler: async function (request, h) {
         try { 
           const contributionEdit = request.payload;
+          console.log(contributionEdit);
           const id = request.params._id;
-          console.log(id);
+          console.log("ID: " + id);
           const contribution = await Contribution.findById(id); 
+          console.log("Contribution:" + contribution);
           contribution.name = contributionEdit.name;
+          console.log("Contributiion Edit:" + contributionEdit.name)
           contribution.type = contributionEdit.type;
           contribution.description = contributionEdit.description;
           contribution.location = contributionEdit.location;
           await contribution.save();
-          return h.redirect("/report");
+          return h.view("report", {contribution});
         } catch (err){
-          return h.redirect("/report", { errors: [{ message: err.message }] });
+          return h.view("report", { errors: [{ message: err.message }] });
 
         }
         }
