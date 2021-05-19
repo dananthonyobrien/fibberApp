@@ -5,6 +5,7 @@ const Candidate = require("../models/candidate");
 var sanitizeHtml = require('sanitize-html'); //Added sanitizeHtml to sanitize user input
 const { logger } = require("handlebars");
 const Joi = require("@hapi/joi");
+const Boom = require("@hapi/boom");
 
 
 const Contributions = {
@@ -55,33 +56,39 @@ const Contributions = {
         }
       },
 
-  
+ 
   showContribution: {
-      handler: async function(request, h) {
-        const contribution = Contribution.findById(request.params._id);
-        return h.view("contribute", { title: "Edit Contribution", user: user });
+    handler: async function (request, h) {
+      try {
+        const contribution = await Contribution.findById(request.params._id).lean();
+        return h.view("edit-contribution", { title: "Edit Contribution", contribution: contribution });
+      } catch (err) {
+        return h.view("edit-contribution", { errors: [{ message: err.message }] });
       }
     },
+  }, 
+  
+
+  //showContribution: {
+  //    handler: async function(request, h) {
+  //      return h.view("contribute", { title: "Edit Contribution", user: user });
+  //    }
+  //  },
 
 
     updateContribution: {
-      handler: async function(request, h) {
-        const contribution = Contribution.findById(request.params._id);
-        return h.view("contribute", { title: "Edit Contribution", user: user });
-      },
       validate: {
         payload: {
           name: Joi.string().required(),
           type: Joi.string().required(),
-          descritption: Joi.string().email().required(),
+          description: Joi.string().required(),
           location: Joi.string().required(),
         },
         options: {
           abortEarly: false,
         },
         failAction: function (request, h, error) {
-          return h
-            .view("contribute", {
+          return h.view("edit-contribution", {
               title: "Sign up error",
               errors: error.details,
             })
@@ -90,15 +97,21 @@ const Contributions = {
         },
       },
       handler: async function (request, h) {
+        try { 
           const contributionEdit = request.payload;
-          const contribution = Contribution.findById(request.params._id); //cut as contribution already defined above in render?
+          const id = request.params._id;
+          console.log(id);
+          const contribution = await Contribution.findById(id); 
           contribution.name = contributionEdit.name;
           contribution.type = contributionEdit.type;
           contribution.description = contributionEdit.description;
           contribution.location = contributionEdit.location;
           await contribution.save();
           return h.redirect("/report");
-        
+        } catch (err){
+          return h.redirect("/report", { errors: [{ message: err.message }] });
+
+        }
         }
       },
     

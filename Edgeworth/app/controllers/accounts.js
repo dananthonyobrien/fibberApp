@@ -139,8 +139,7 @@ const Accounts = {
         abortEarly: false,
       },
       failAction: function (request, h, error) {
-        return h
-          .view("settings", {
+        return h.view("settings", {
             title: "Sign up error",
             errors: error.details,
           })

@@ -1,0 +1,49 @@
+<!-- Form partial to update contribution -->
+<form action="/update-contribution" method="POST">
+<div>
+      <div>
+        <legend class="uk-legend">Contribute an Irish Scientist or Place of Scientific Interest</legend>
+        <div class="uk-margin">
+          <label class="uk-form-label" for="form-stacked-text">Name</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name" placeholder="Name of scientist or place" value="{{contribution.name}}"> <!-- Value adds current values into fields -->
+          </div>
+        </div>
+        <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Type</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select" type="string" name="type" placeholder= "Person or Place" readonly="true" value="{{contribution.type}}">
+              <option></option>
+              <option>Person</option>
+              <option>Place</option>
+              <option>Other</option>
+            </select>
+          </div>
+          </div>
+      <div class=" uk-margin">
+        <div class="uk-form-label">Description</div>
+        <div class="uk-form-controls">
+            <input class="uk-input" id="form-stacked-text" type="string" name="description" placeholder="Description of scientist or place" value="{{contribution.description}}">
+        </div>
+      </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Location</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select" type="string" name="location" placeholder= "location" readonly="true" value="{{contribution.location}}">
+              <option></option>
+              <option>Munster</option>
+              <option>Connaught</option>
+              <option>Ulster</option>
+              <option>Leinster</option>
+            </select>
+          </div>
+        <div class="uk-margin">
+          <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+
+{{> error }}
