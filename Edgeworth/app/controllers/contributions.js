@@ -12,7 +12,7 @@ var likes = 0;
 const Contributions = {
   home: {
     handler: async function (request, h) {
-      const candidates = await Candidate.find().lean();
+      const candidates = await Contribution.find().lean(); // was Candidate for some reason
       return h.view("home", { title: "Make a Contribution" });
     },
   },
@@ -125,13 +125,14 @@ const Contributions = {
     handler: async function (request, h) {
       likes++;
       const contribution = await Contribution.findById(request.params._id);
-      //likes = contribution.likes;
+      contribution.likes = likes;
       console.log("Contribution " + contribution._id + " has " + likes + " likes");
 
      // await contribution.save();
       return h.redirect("/report", {
-        contributions: contributions,
-        contribution: likes,
+        //contributions: contributions,
+        //contribution: contribution,
+        contribution: contribution
       });
     }
   },
