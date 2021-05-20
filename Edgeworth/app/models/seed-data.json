@@ -27,6 +27,7 @@
       "type": "person",
       "description": "Robert Boyle, natural philosopher, chemist, physicist, and inventor, largely regarded today as the first modern chemist.",
       "location": "Munster",
+      "likes": 5,
       "contributor": "->users.frank"
     },
     "two": {
@@ -34,6 +35,7 @@
       "type": "person",
       "description": "Ernest Walton received the Novel Prize for splitting the atom.",
       "location": "Munster",
+      "likes": 10,
       "contributor": "->users.mark"
     },
     "three": {
@@ -41,6 +43,7 @@
       "type": "person",
       "description": "Beaufort invented the Beaufort scale to measure wind conditions.",
       "location": "Munster",
+      "likes": "20",
       "contributor": "->users.john"
     },
     "four": {
@@ -48,6 +51,7 @@
       "type": "place",
       "description": "Birr Castle is the home of the Leviathan of Parsonstown, the largest telescope of the nineteenth century, built by the 3rd Earl of Rosse.",
       "location": "Leinster",
+      "likes": "50",
       "contributor": "->users.john"
     },
     "five": {
@@ -55,6 +59,7 @@
       "type": "place",
       "description": "Former castle guarding entrance to Cork harbour, now an educational observatory affiliated with Munster Technological University.",
       "location": "Munster",
+      "likes": "300",
       "contributor": "->users.john"
     },
     "six": {
@@ -62,6 +67,7 @@
       "type": "person",
       "description": "Ellen Hutchins (1785–1815) was an early Irish botanist. She specialised in seaweeds, lichens, mosses and liverworts.",
       "location": "Munster",
+      "likes": "100",
       "contributor": "->users.john"
     },
     "seven": {
@@ -69,6 +75,7 @@
       "type": "person",
       "description": "Guglielmo Marconi (1874–1937) was an Italian inventor and electrical engineer, known for his pioneering work on long-distance radio transmission, for which he shared the 1909 Nobel Prize in Physics for the development of wireless telegraphy.",
       "location": "Connaught",
+      "likes": "20",
       "contributor": "->users.john"
     }
   }
