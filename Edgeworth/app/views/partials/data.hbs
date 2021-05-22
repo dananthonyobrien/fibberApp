@@ -22,7 +22,8 @@
     $("#pressure").append(content3)
 
   });
-  
+  </script>
+  <script>
   var settings1 = {
     "async": true,
     "crossDomain": true,
@@ -32,7 +33,7 @@
 
   $.ajax(settings1).done(function (response) {
     console.log(response);
-    var content4 = response.response.name;
+    var content4 = response["response"][0].name;
     $("#moonPhase").append(str(content4));
 
   });
@@ -57,7 +58,7 @@
     Pressure: <span id="pressure"></span> MB </div>
   <div
     uk-tooltip="title: Did you know: the Earl of Birr discovered the temperature of the moon in the 1840s, more than 100 years before the Apollo mission landed on its surface">
-    Moon Phase: <span id="moonPhase"></span> &#176;C </div>
-  <div
+    Moon Phase: <span id="moonPhase"></span> </div>
+  <div>
   <img width="350" src="images/ireland-rock.png">
 </div>
