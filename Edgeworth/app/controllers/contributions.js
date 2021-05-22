@@ -12,7 +12,7 @@ var likes = 0;
 const Contributions = {
   home: {
     handler: async function (request, h) {
-      const candidates = await Contribution.find().lean(); // was Candidate for some reason
+      const contributions = await Contribution.find().lean(); // was Candidate for some reason
       return h.view("home", { title: "Make a Contribution" });
     },
   },
@@ -123,16 +123,20 @@ const Contributions = {
   likeContribution: {
     auth: false,
     handler: async function (request, h) {
-      likes++;
+      //likes++;
       const contribution = await Contribution.findById(request.params._id);
-      contribution.likes = likes;
-      console.log("Contribution " + contribution._id + " has " + likes + " likes");
+      //contribution.likes = likes++;
+      console.log(contribution.likes)
+      //contribution.likes = contribution.likes++;
+      contribution.likes++;
+      console.log("Contribution " + contribution._id + " has " + contribution.likes + " likes");
 
-     // await contribution.save();
+      await contribution.save();
       return h.redirect("/report", {
         //contributions: contributions,
         //contribution: contribution,
-        contribution: contribution
+        contribution: contribution,
+        likes: likes,
       });
     }
   },
