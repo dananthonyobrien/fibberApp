@@ -1,5 +1,5 @@
 <!-- <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large"> -->
-<!---  API taking wind readings from Open Weather App --->
+<!---  API taking readings from Open Weather App using ajax --->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
@@ -22,19 +22,33 @@
     $("#pressure").append(content3)
 
   });
-  </script>
-  <script>
+</script>
+
+
+
+<script>
+
+  // Moon phase taken via API from Aeris Weather
+  // Dot and bracket notation used to access object within array within object
   var settings1 = {
     "async": true,
     "crossDomain": true,
-    "url": "https://api.aerisapi.com/sunmoon/moonphases/dublin,ireland?client_secret=kWoCJmXKK6zJRllu4V7svR3erxz8REztKX9trjaA&client_id=7q9qIxdUgoxF3PLVNvKu1",
+    "url": "https://api.aerisapi.com/sunmoon/Dublin,ireland?&format=json&client_id=7q9qIxdUgoxF3PLVNvKu1&client_secret=kWoCJmXKK6zJRllu4V7svR3erxz8REztKX9trjaA",
     "method": "GET"
   }
 
-  $.ajax(settings1).done(function (response) {
-    console.log(response);
-    var content4 = response["response"][0].name;
-    $("#moonPhase").append(str(content4));
+  $.ajax(settings1).done(function (response1) {
+    console.log(response1);
+    var content4 = response1.response[0].moon.phase.name;
+    //var capitalise = content4.toUpperCase();
+    var content5 = response1.response[0].sun.riseISO;
+    var justTime = content5.slice(11,16);
+    $("#moonPhase").append(content4);
+    $("#sunset").append(justTime);
+
+
+
+
 
   });
 </script>
@@ -43,7 +57,12 @@
 
 
 
-<div class="uk-margin uk-width-2xlarge uk-card uk-card-default uk-card-body uk-box-shadow uk-text-left">
+
+
+
+
+
+<div class="uk-margin uk-card-default uk-card-body uk-box-shadow uk-text-left" uk-sticky>
   <legend class="uk-legend uk-text-center"><b>Data Dashboard</b></legend>
   <div
     uk-tooltip="title: Did you know: Irish scientist John Tyndall discovered that the Earth's atmosphere is kept warm by carbon dioxide and water vapour">
@@ -58,7 +77,11 @@
     Pressure: <span id="pressure"></span> MB </div>
   <div
     uk-tooltip="title: Did you know: the Earl of Birr discovered the temperature of the moon in the 1840s, more than 100 years before the Apollo mission landed on its surface">
-    Moon Phase: <span id="moonPhase"></span> </div>
+    Moon Phase: <span id="moonPhase"></span></div>
+    <div
+    uk-tooltip="title: Did you know: the Irish company Captec designed the software for the measurement instruments onboard the NASA/ESA Solar Orbiter satellite, now on its way to the Sun">
+     Sunrise: <span id="sunset"></span></div>
   <div>
-  <img width="350" src="images/ireland-rock.png">
-</div>
+    <img width="350" src="images/ireland-rock.png">
+  </div>
+  </div>

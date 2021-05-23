@@ -1,31 +1,24 @@
+<!-- List of POI contributions -->
 <div class=" uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow">
-  <header class="uk-heading-small">Map of Irish Science</header>
-  <table class="uk-table">
-    <thead>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Contributor</th>
-      <th>Options</th>
-    </thead>
-    <tbody class="uk-text-left">
-      {{#each contributions}}
-        <tr>
-          <!-- Added extra pair of curly brackets for cross-site scripting test-->
-          <td>{{{name}}}</td>
-          <td>{{type}}</td>
-          <td>{{description}}</td>
-          <td>{{location}}</td>
-          <td>{{contributor.firstName}} {{contributor.lastName}}</td>
-          <!-- Added edit, delete, and like buttons -->
-          <td><a href="/update-contribution/{{_id}}" uk-icon="pencil"></a><a href="/delete-contribution/{{_id}}" uk-icon="trash"><a href="/like-contribution/{{_id}}" uk-icon="star">{{likes}}</a></td>
-        </tr>
-        
-      {{/each}}
-    </tbody>
-  </table>
-  <a href="/home">Add Scientist or Location
-    <i class="fas fa-vial fa-3x" style="color:rgb(153, 196, 74)" title="Contribute" pos="bottom" uk-tooltip></i>
+  <img src="images/edgeworth-logo.png">
+
+
+  {{#each contributions}}
+  <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">
+    <!-- Added extra pair of curly brackets for cross-site scripting test-->
+    <h2>{{{name}}}</h2>
+    <!-- Added edit, delete, and like buttons -->
+    <a href="/edit-contribution/{{_id}}" uk-icon="pencil"></a><a href="/delete-contribution/{{_id}}" uk-icon="trash"><a
+        href="/like-contribution/{{_id}}" uk-icon="star">{{likes}}</a>
+      <p>{{type}}</p>
+      <p class="uk-text-left">{{description}}</p>
+      <p>Location: {{location}}</p>
+      <td>Contributor: {{contributor.firstName}} {{contributor.lastName}}</td>
+  </div>
+  {{/each}}
+
+  <a href="/home">
+    <i class="fas fa-vial fa-3x" style="color:rgb(44, 148, 139)" title="Add" pos="bottom" uk-tooltip></i>
+
   </a>
 </div>

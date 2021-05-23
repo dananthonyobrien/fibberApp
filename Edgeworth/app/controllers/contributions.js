@@ -12,7 +12,7 @@ var likes = 0;
 const Contributions = {
   home: {
     handler: async function (request, h) {
-      const contributions = await Contribution.find().lean(); // was Candidate for some reason
+      const contributions = await Contribution.find().lean(); 
       return h.view("home", { title: "Make a Contribution" });
     },
   },
@@ -39,6 +39,10 @@ const Contributions = {
           likes: likes,   //added like for like button
           contributor: user._id,
         });
+        //if (contribution.type = "person"){
+        //  return personImage;
+        //}
+
         await newContribution.save();
         return h.redirect("/report");
       } catch (err) {
@@ -57,7 +61,7 @@ const Contributions = {
     }
   },
 
-
+  // Show method needed to add contribution values to edit page
   showContribution: {
     handler: async function (request, h) {
       try {
@@ -70,13 +74,7 @@ const Contributions = {
   },
 
 
-  //showContribution: {
-  //    handler: async function(request, h) {
-  //      return h.view("contribute", { title: "Edit Contribution", user: user });
-  //    }
-  //  },
-
-
+  // update contribution built with settings update and ICT1 update, but not working
   updateContribution: {
     validate: {
       payload: {
@@ -89,7 +87,7 @@ const Contributions = {
         abortEarly: false,
       },
       failAction: function (request, h, error) {
-        return h.view("edit-contribution", {
+        return h.view("update-contribution", {
           title: "Sign up error",
           errors: error.details,
         })
@@ -119,24 +117,18 @@ const Contributions = {
     }
   },
 
-
+// Like contribution method that adds 1 to star counter every time button is clicked
   likeContribution: {
     auth: false,
     handler: async function (request, h) {
-      //likes++;
       const contribution = await Contribution.findById(request.params._id);
-      //contribution.likes = likes++;
       console.log(contribution.likes)
-      //contribution.likes = contribution.likes++;
       contribution.likes++;
       console.log("Contribution " + contribution._id + " has " + contribution.likes + " likes");
 
       await contribution.save();
       return h.redirect("/report", {
-        //contributions: contributions,
-        //contribution: contribution,
-        contribution: contribution,
-        likes: likes,
+        contribution: likes,
       });
     }
   },
