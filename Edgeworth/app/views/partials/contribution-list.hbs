@@ -1,24 +1,29 @@
 <!-- List of POI contributions -->
 <div class=" uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow">
-  <img src="images/edgeworth-logo.png">
 
 
   {{#each contributions}}
   <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">
     <!-- Added extra pair of curly brackets for cross-site scripting test-->
-    <h2>{{{name}}}</h2>
+    <h2>{{title}}</h2>
     <!-- Added edit, delete, and like buttons -->
     <a href="/edit-contribution/{{_id}}" uk-icon="pencil"></a><a href="/delete-contribution/{{_id}}" uk-icon="trash"><a
         href="/like-contribution/{{_id}}" uk-icon="star">{{likes}}</a>
-      <p>{{type}}</p>
-      <p class="uk-text-left">{{description}}</p>
-      <p>Location: {{location}}</p>
-      <td>Contributor: {{contributor.firstName}} {{contributor.lastName}}</td>
+      
+      <p>{{bio}}</p>
+      <h3>{{contributor.firstName}} {{contributor.lastName}}</h3>      
+      <p>Forge Press</p>
+      <p>{{genre}} Series</p>
+
   </div>
+  <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">
+
+        <p class="uk-text-left">{{{name}}} opened {{type}} eyes and looked out the window at {{type}} country, {{country}}. It looked to be about <span id="temperature"></span> &#176;C</p>
+</div>
   {{/each}}
 
   <a href="/home">
-    <i class="fas fa-vial fa-3x" style="color:rgb(44, 148, 139)" title="Add" pos="bottom" uk-tooltip></i>
+    <i class="fas fa-pen fa-3x" style="color:rgb(44, 148, 139)" title="New" pos="bottom" uk-tooltip></i>
 
   </a>
 </div>

@@ -4,10 +4,11 @@ const Mongoose = require("mongoose");
 const Schema = Mongoose.Schema;
 
 const contributionSchema = new Schema({
+  title: String,
   name: String,
   type: String,
-  description: String,
-  location: String,
+  country: String,
+  genre: String,
   likes: Number,
   contributor: {
     type: Schema.Types.ObjectId,

@@ -32,10 +32,11 @@ const Contributions = {
         const user = await User.findById(id);
         const data = request.payload;
         const newContribution = new Contribution({
+          title: sanitizeHtml(data.title),
           name: sanitizeHtml(data.name),                // sanitize user input
           type: sanitizeHtml(data.type),                // sanitize user input 
-          description: sanitizeHtml(data.description),  // sanitize user input
-          location: sanitizeHtml(data.location),        // sanitize user input
+          country: sanitizeHtml(data.country),  // sanitize user input
+          genre: sanitizeHtml(data.genre),        // sanitize user input
           likes: likes,   //added like for like button
           contributor: user._id,
         });

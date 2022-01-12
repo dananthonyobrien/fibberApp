@@ -4,43 +4,49 @@
 <div>
   <form class="uk-form-stacked" action="/contribute" method="POST">
       <div>
-        <legend class="uk-legend">Contribute an Irish Scientist or Place of Scientific Interest</legend>
+        <legend class="uk-legend" uk-tooltip="title: Welcome to the Scribbler page! Add your story ideas here then click Scribble! to create your story.">Scribbler</legend>
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Name</label>
+          <label class="uk-form-label" for="form-stacked-text">Story Title</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name" placeholder="Name of scientist or place">
+            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="title" placeholder="How about 'The Magic Pineapple' or 'Cats in Space'?">
           </div>
         </div>
         <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-text">Type</label>
+          <label class="uk-form-label" for="form-stacked-text">Hero/ine </label>
           <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" type="string" name="type" placeholder= "Person or Place" readonly="true">
+            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name" placeholder="Sandy, Mandy, Andy, you decide who the story is about!">
+          </div>
+        </div>
+        <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Pronoun</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select" type="string" name="type" placeholder= "Choose their gender" readonly="true">
               <option></option>
-              <option>Person</option>
-              <option>Place</option>
-              <option>Other</option>
+              <option>her</option>
+              <option>their</option>
+              <option>his</option>
             </select>
           </div>
           </div>
       <div class=" uk-margin">
-        <div class="uk-form-label">Description</div>
+        <div class="uk-form-label">Setting</div>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="string" name="description" placeholder="Description of scientist or place">
+            <input class="uk-input" id="form-stacked-text" type="string" name="country" placeholder="New York, London, Bandon, wherever you like!">
         </div>
       </div>
       <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-text">Location</label>
+        <label class="uk-form-label" for="form-stacked-text">Story Type</label>
           <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" type="string" name="location" placeholder= "location" readonly="true">
+            <select class="uk-select" id="form-stacked-select" type="string" name="genre" placeholder= "Would you like an adventure in space, under the sea,  in the jungle, or in a fairy tale?" readonly="true">
               <option></option>
-              <option>Munster</option>
-              <option>Connaught</option>
-              <option>Ulster</option>
-              <option>Leinster</option>
+              <option>Space Adventure</option>
+              <option>Sea Voyage</option>
+              <option>Jungle Explorer</option>
+              <option>Fairy Tale</option>
             </select>
           </div>
         <div class="uk-margin">
-          <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Contribute</button>
+          <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Scribble!</button>
         </div>
       </div>
     </div>
