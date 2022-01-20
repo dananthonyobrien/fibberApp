@@ -1,20 +1,20 @@
 <!---<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
    <legend class="uk-legend">Welcome: {{user.firstName}} {{user.lastName}}</legend> 
 </div>--->
-<div>
+<!--<div>
   <form class="uk-form-stacked" action="/contribute" method="POST">
       <div>
-        <legend class="uk-legend" uk-tooltip="title: Welcome to the Scribbler page! Add your story ideas here then click Scribble! to create your story.">Scribbler</legend>
+        <legend class="uk-legend">Add novel details</legend>
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Story Title</label>
+          <label class="uk-form-label" for="form-stacked-text">Title</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="title" placeholder="How about 'The Magic Pineapple' or 'Cats in Space'?">
+            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="title" placeholder="What is the name of your book?">
           </div>
         </div>
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Hero/ine </label>
+          <label class="uk-form-label" for="form-stacked-text">Protagonist</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name" placeholder="Sandy, Mandy, Andy, you decide who the story is about!">
+            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name" placeholder="Give your main character a name">
           </div>
         </div>
         <div class="uk-margin">
@@ -29,26 +29,129 @@
           </div>
           </div>
       <div class=" uk-margin">
-        <div class="uk-form-label">Setting</div>
+        <div class="uk-form-label">Country</div>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="string" name="country" placeholder="New York, London, Bandon, wherever you like!">
+            <input class="uk-input" id="form-stacked-text" type="string" name="country" placeholder="Where are they from?">
         </div>
       </div>
       <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-text">Story Type</label>
+        <label class="uk-form-label" for="form-stacked-text">Genre</label>
           <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" type="string" name="genre" placeholder= "Would you like an adventure in space, under the sea,  in the jungle, or in a fairy tale?" readonly="true">
+            <select class="uk-select" id="form-stacked-select" type="string" name="genre" placeholder= "What type of novel is this anyway?" readonly="true">
               <option></option>
-              <option>Space Adventure</option>
-              <option>Sea Voyage</option>
-              <option>Jungle Explorer</option>
-              <option>Fairy Tale</option>
+              <option>Historical</option>
+              <option>Horror</option>
+              <option>Detective</option>
+              <option>Romance</option>
             </select>
           </div>
         <div class="uk-margin">
-          <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Scribble!</button>
+          <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Create</button>
         </div>
       </div>
     </div>
   </form>
+</div>-->
+
+
+<div class="uk-child-width-1-2 uk-text-center" uk-grid>
+
+  <div>
+    <div class="uk-card uk-card-default uk-text-primary uk-card-body uk-background-cover" data-src="images/line-paper.png" uk-img>
+
+
+      <form class="uk-form-stacked" action="/contribute" method="POST">
+        <div>
+          <legend class="uk-legend "
+            uk-tooltip="title: Welcome to the Scribbler page! Add your story ideas here then click Scribble! to create your story.">
+            Scribbler</legend>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Story Title</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="title"
+                placeholder="How about 'The Magic Pineapple' or 'Cats in Space'?">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Hero/ine name </label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name"
+                placeholder="Sandy, Mandy, Andy, you decide who the story is about!">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Hero/ine age</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" minlength="1" maxlength="2" name="age"
+                placeholder="How old is your main character, from 1 to 99?">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Teddy name</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="teddyName"
+                placeholder="Bobby, Cashy, Cuddles, what is your favourite teddy's name?">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Teddy type</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="teddyType"
+                placeholder="Bear, rabbit, owl, what type of animal is your favourite teddy?">
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Food</label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="food"
+                placeholder="peanuts, raisins, carrots, you decide what food will appear in your story!">
+            </div>
+          </div>
+          <div class=" uk-margin">
+            <div class="uk-form-label">Setting</div>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" name="country"
+                placeholder="New York, London, Bandon, wherever you like!">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text">Story Type</label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" type="string" name="genre"
+                placeholder="Would you like an adventure in space, under the sea,  in the jungle, or in a fairy tale?"
+                readonly="true">
+                <option></option>
+                <option>Space Adventure</option>
+                <option>Sea Voyage</option>
+                <option>Jungle Explorer</option>
+                <option>Fairy Tale</option>
+              </select>
+            </div>
+            <div class="uk-margin">
+              <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Scribble!</button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div>
+    <div class="uk-child-width uk-text-center" uk-grid>
+      <div>
+        <div class="uk-card uk-card-body uk-animation-slide-right">
+
+          <img width="data-width" src="images/fibber-owl-eyes-centre.png">
+
+          <p>Welcome to Fibber! I'm Owen the Owl and I'll guide you through making your very own story! This is the
+            Scribbler page. Add your story ideas here then click Scribble! to create your story.</p>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
 </div>

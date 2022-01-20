@@ -34,15 +34,16 @@ const Contributions = {
         const newContribution = new Contribution({
           title: sanitizeHtml(data.title),
           name: sanitizeHtml(data.name),                // sanitize user input
-          type: sanitizeHtml(data.type),                // sanitize user input 
+          age: sanitizeHtml(data.age),        // sanitize user input
           country: sanitizeHtml(data.country),  // sanitize user input
-          genre: sanitizeHtml(data.genre),        // sanitize user input
+          teddyName: sanitizeHtml(data.teddyName),
+          teddyType: sanitizeHtml(data.teddyType),
+          food: sanitizeHtml(data.food),
+          genre: sanitizeHtml(data.genre),
           likes: likes,   //added like for like button
           contributor: user._id,
         });
-        //if (contribution.type = "person"){
-        //  return personImage;
-        //}
+       
 
         await newContribution.save();
         return h.redirect("/report");

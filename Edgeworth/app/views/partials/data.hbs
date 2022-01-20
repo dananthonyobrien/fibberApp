@@ -16,10 +16,13 @@
     var content1 = response.main.temp;
     var content2 = response.main.humidity;
     var content3 = response.main.pressure;
+    var content6 = response.weather[0].main;
+
     $("#windSpeed").append(content);
     $("#temperature").append(content1);
     $("#humidity").append(content2);
-    $("#pressure").append(content3)
+    $("#pressure").append(content3);
+    $("#weather").append(content6);
 
   });
 </script>
@@ -40,7 +43,6 @@
   $.ajax(settings1).done(function (response1) {
     console.log(response1);
     var content4 = response1.response[0].moon.phase.name;
-    //var capitalise = content4.toUpperCase();
     var content5 = response1.response[0].sun.riseISO;
     var justTime = content5.slice(11,16);
     $("#moonPhase").append(content4);
@@ -54,15 +56,109 @@
 </script>
 
 
+<!--<script>
+
+  // Moon phase taken via API from Aeris Weather
+  // Dot and bracket notation used to access object within array within object
+  var settings2 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.openai.com/v1/engines/davinci/completions",
+    "method": "GET"
+
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Authorization", "Bearer $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");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+
+var data = `{
+  "prompt": "Topic: Jungle Two-Sentence Children's Adventure Story: The cats had escaped once more and it was up to 5 year old Detective Molly to track them down",
+  "temperature": 0.5,
+  "max_tokens": 60,
+  "top_p": 1.0,
+  "frequency_penalty": 0.5,
+  "presence_penalty": 0.0,
+  "stop": ["###"]
+}`;
+
+xhr.send(data);
+
+
+$.ajax(settings2).done(function (response1) {
+    console.log(response2);
+    var content10 = response2;
+    //var capitalise = content4.toUpperCase();
+    $("#GPT3response").append(content10);
+  }
+
+  });
+</script> -->
+
+
+<!--<script>
+  var settings5 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.openai.com/v1/engines/davinci/completions",
+    "method": "GET",
+    "headers": {"Authorization", "Bearer $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"}
+
+  }
+
+  $.ajax(settings).done(function (response10) {
+    console.log(response10);
+    //var content10 = response10;
+    //$("#GPT3output").append(content10)
+
+  });
+</script> -->
+
+
+<script>
+
+const got = require('got');
+const prompt = `I think therefore I... `;
+
+(async () => {
+  const url = 'https://api.openai.com/v1/engines/davinci/completions';
+  const params = {
+    "prompt": prompt,
+    "max_tokens": 60,
+    "temperature": 0.7,
+    "frequency_penalty": 0.5
+  };
+  const headers = {
+    //'Authorization': `Bearer ${process.env.OPENAI_SECRET_KEY}`,
+    'Authorization': `Bearer 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`,
+
+  };
+const response = await got.post(url, { json: params, headers: headers }).json();
+    output = `${prompt}${response.choices[0].text}`;
+    console.log(output);
+    var gpt3 = output;
+    $("#gpt3").append(gpt3);
+
+
+  /*try {
+    const response = await got.post(url, { json: params, headers: headers }).json();
+    //output = `${prompt}${response.choices[0].text}`;
+    console.log(response);
+    var GPT3 = output;
+    $("#GPT3").append(response)
+  } catch (err) {
+    console.log(err);
+  } */
+})();
+</script>
 
 
 
 
-
-
-
-
-<div class="uk-margin uk-card-default uk-card-body uk-box-shadow uk-text-left" uk-sticky>
+<div class="uk-margin uk-card-default uk-card-body uk-box-shadow uk-text-left uk-animation-slide-right" uk-sticky>
   <legend class="uk-legend uk-text-center"><b>Data Dashboard</b></legend>
   <div
     uk-tooltip="title: Did you know: Irish scientist John Tyndall discovered that the Earth's atmosphere is kept warm by carbon dioxide and water vapour">
@@ -81,7 +177,13 @@
     <div
     uk-tooltip="title: Did you know: the Irish company Captec designed the software for the measurement instruments onboard the NASA/ESA Solar Orbiter satellite, now on its way to the Sun">
      Sunrise: <span id="sunset"></span></div>
+     <div
+    uk-tooltip="title: Did you know: the Irish company Captec designed the software for the measurement instruments onboard the NASA/ESA Solar Orbiter satellite, now on its way to the Sun">
+     Weather: <span id="weather"></span></div>
+     <div
+    uk-tooltip="title: Did you know: the Irish company Captec designed the software for the measurement instruments onboard the NASA/ESA Solar Orbiter satellite, now on its way to the Sun">
+     GPT3 Response: <span id="gpt3"></span></div>
   <div>
-    <img width="350" src="images/ireland-rock.png">
+    <img width="350" src="images/fibber-logo-eyes-down.png">
   </div>
   </div>

@@ -6,9 +6,12 @@ const Schema = Mongoose.Schema;
 const contributionSchema = new Schema({
   title: String,
   name: String,
-  type: String,
   country: String,
   genre: String,
+  age: String, 
+  teddyName: String,
+  teddyType: String,
+  food: String,
   likes: Number,
   contributor: {
     type: Schema.Types.ObjectId,
