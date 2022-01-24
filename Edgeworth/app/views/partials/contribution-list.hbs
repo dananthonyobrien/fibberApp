@@ -1,6 +1,14 @@
 <!-- List of POI contributions -->
 
-<!---  API taking readings from Open Weather App using ajax --->
+<!---  API taking readings from Open Weather App using ajax 
+
+
+
+
+
+
+
+--->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
@@ -24,11 +32,24 @@
 
 <div class=" uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow">
 
+ 
 
   {{#each contributions}}
-  <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">
+
+  <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow uk-card-hover uk-card-secondary">
+
+
+
+<ul uk-accordion="multiple: true">
+    <li class="uk-open">
+        <a class="uk-accordion-title" href="#"> <h2> {{title}} </h2></a>
+        <div class="uk-accordion-content">
+
+
+
+  <!--<div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">-->
     <!-- Added extra pair of curly brackets for cross-site scripting test-->
-    <h2>{{title}}</h2>
+    <!--<h2>{{title}}</h2>-->
     <!-- Added edit, delete, and like buttons -->
     <a href="/edit-contribution/{{_id}}" uk-icon="pencil"></a><a href="/delete-contribution/{{_id}}" uk-icon="trash"><a
         href="/like-contribution/{{_id}}" uk-icon="star">{{likes}}</a>
@@ -38,8 +59,8 @@
       <h4>by {{contributor.firstName}} <!--{{contributor.lastName}}--></h4>      
 
 
-  </div>
-  <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">
+  <!--</div>-->
+ <!-- <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">-->
 
 
         <p class="uk-text-left">Once upon a time, {{age}}-year-old {{name}} and {{teddyName}} {{teddyType}} were supposed to be asleep in their home in {{country}}. 
@@ -59,11 +80,11 @@
 
         <h4>The End</h4>
 
-</div> 
+<!--</div> -->
+</div>
+
+</div>
   {{/each}}
 
-  <a href="/home">
-    <i class="fas fa-pen fa-3x" style="color:rgb(44, 148, 139)" title="New" pos="bottom" uk-tooltip></i>
-
-  </a>
+ 
 </div>

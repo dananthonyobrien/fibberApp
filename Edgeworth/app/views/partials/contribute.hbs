@@ -57,69 +57,72 @@
 <div class="uk-child-width-1-2 uk-text-center" uk-grid>
 
   <div>
-    <div class="uk-card uk-card-default uk-text-primary uk-card-body uk-background-cover" data-src="images/line-paper.png" uk-img>
+    <div class="uk-card uk-card-default uk-text-purple uk-card-body uk-background-cover"
+      data-src="images/line-paper.png" uk-img>
 
 
       <form class="uk-form-stacked" action="/contribute" method="POST">
         <div>
-          <legend class="uk-legend "
-            uk-tooltip="title: Welcome to the Scribbler page! Add your story ideas here then click Scribble! to create your story.">
-            Scribbler</legend>
+          <legend class="uk-legend">
+            <h2><i>Scribbler </i> </h2>
+          </legend>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text">Story Title</label>
+            <label class="uk-form-label" for="form-stacked-text" uk-tooltip="Give your story a name!"><i>Story
+                Title</i></label>
             <div class="uk-form-controls">
-              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="title"
-                placeholder="How about 'The Magic Pineapple' or 'Cats in Space'?">
+              <input class="uk-input" id="form-stacked-text" type="string" name="title"
+                placeholder="The Magic Pineapple">
             </div>
           </div>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text">Hero/ine name </label>
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="Give your hero a name, Mandy, Andy, anything really, even your own name!"><i>Hero/ine name</i>
+            </label>
             <div class="uk-form-controls">
-              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name"
-                placeholder="Sandy, Mandy, Andy, you decide who the story is about!">
+              <input class="uk-input" id="form-stacked-text" type="string" name="name" placeholder="Alex">
             </div>
           </div>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text">Hero/ine age</label>
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="How old is your hero/ine? Pick an age from 1 to 99 and beyond!"><i>Hero/ine age</i></label>
             <div class="uk-form-controls">
-              <input class="uk-input" id="form-stacked-text" type="string" minlength="1" maxlength="2" name="age"
-                placeholder="How old is your main character, from 1 to 99?">
+              <input class="uk-input" id="form-stacked-text" type="string" name="age" placeholder="five and a half">
             </div>
           </div>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text">Teddy name</label>
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="Pick a name for the hero/ine's teddy sidekick!"><i>Teddy name</i></label>
             <div class="uk-form-controls">
-              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="teddyName"
-                placeholder="Bobby, Cashy, Cuddles, what is your favourite teddy's name?">
+              <input class="uk-input" id="form-stacked-text" type="string" name="teddyName" placeholder="Fluffy">
             </div>
           </div>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text">Teddy type</label>
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="What type of teddy is it? A bear, rabbit, fox? You decide!"><i>Teddy type</i></label>
             <div class="uk-form-controls">
-              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="teddyType"
-                placeholder="Bear, rabbit, owl, what type of animal is your favourite teddy?">
+              <input class="uk-input" id="form-stacked-text" type="string" name="teddyType" placeholder="bear">
             </div>
           </div>
 
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text">Food</label>
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="peanuts, raisins, carrots, you decide what food will appear in your story"><i>Food</i></label>
             <div class="uk-form-controls">
-              <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="food"
-                placeholder="peanuts, raisins, carrots, you decide what food will appear in your story!">
+              <input class="uk-input" id="form-stacked-text" type="string" name="food" placeholder="raisins">
             </div>
           </div>
           <div class=" uk-margin">
-            <div class="uk-form-label">Setting</div>
+            <div class="uk-form-label" uk-tooltip="New York, London, Bandon, wherever you like!"><i>Setting</i></div>
             <div class="uk-form-controls">
-              <input class="uk-input" id="form-stacked-text" type="string" name="country"
-                placeholder="New York, London, Bandon, wherever you like!">
+              <input class="uk-input" id="form-stacked-text" type="string" name="country" placeholder="Waterford">
             </div>
           </div>
           <div class="uk-margin">
-            <label class="uk-form-label" for="form-stacked-text">Story Type</label>
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="Would you like an adventure in space, under the sea,  in the jungle, or in a fairy tale?"><i>Story
+                Type</i></label>
             <div class="uk-form-controls">
-              <select class="uk-select" id="form-stacked-select" type="string" name="genre"
-                placeholder="Would you like an adventure in space, under the sea,  in the jungle, or in a fairy tale?"
+              <select class="uk-select" id="form-stacked-select" type="string" name="genre" placeholder="space"
                 readonly="true">
                 <option></option>
                 <option>Space Adventure</option>
@@ -129,7 +132,7 @@
               </select>
             </div>
             <div class="uk-margin">
-              <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Scribble!</button>
+              <button class="submit uk-button uk-button-secondary uk-button-large uk-width-1-1">Create!</button>
             </div>
           </div>
         </div>
@@ -143,11 +146,13 @@
       <div>
         <div class="uk-card uk-card-body uk-animation-slide-right">
 
-          <img width="data-width" src="images/fibber-owl-eyes-centre.png">
 
-          <p>Welcome to Fibber! I'm Owen the Owl and I'll guide you through making your very own story! This is the
-            Scribbler page. Add your story ideas here then click Scribble! to create your story.</p>
+          <h3>Welcome to Fibber! I'm Ollie the Owl and I'll guide you through making your very own story! This is the
+            Scribbler page. Add your story ideas here then click Scribble! to create your story.</h3>
+          <img width="data-width" src="images/fibber-owl-eyes-centre.png">
         </div>
+
+
       </div>
 
 

@@ -35,10 +35,10 @@ const Contributions = {
           title: sanitizeHtml(data.title),
           name: sanitizeHtml(data.name),                // sanitize user input
           age: sanitizeHtml(data.age),        // sanitize user input
-          country: sanitizeHtml(data.country),  // sanitize user input
           teddyName: sanitizeHtml(data.teddyName),
           teddyType: sanitizeHtml(data.teddyType),
           food: sanitizeHtml(data.food),
+          country: sanitizeHtml(data.country),  // sanitize user input
           genre: sanitizeHtml(data.genre),
           likes: likes,   //added like for like button
           contributor: user._id,
