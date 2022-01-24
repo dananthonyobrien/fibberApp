@@ -12,7 +12,7 @@ var likes = 0;
 const Contributions = {
   home: {
     handler: async function (request, h) {
-      const contributions = await Contribution.find().lean(); 
+      const contributions = await Contribution.find().lean();
       return h.view("home", { title: "Make a Contribution" });
     },
   },
@@ -26,11 +26,54 @@ const Contributions = {
     },
   },
   contribute: {
+
+
     handler: async function (request, h) {
       try {
         const id = request.auth.credentials.id;
         const user = await User.findById(id);
         const data = request.payload;
+        var weathers = "Not working";
+
+        /*var weatherSettings = {
+          "async": false,
+          "crossDomain": true,
+          "url": "https://api.openweathermap.org/data/2.5/weather?q=cork&appid=286e86f2a2706bfb9f508eedc061b148&units=metric",
+          "method": "GET"
+        }
+        $.ajax(weatherSettings).done(function (response) {
+          console.log(response);
+          var weathers = response.weather[0].main; */
+
+        var request = require('request');
+        var options = {
+          'method': 'GET',
+          'url': 'https://api.openweathermap.org/data/2.5/weather?q=cork&appid=286e86f2a2706bfb9f508eedc061b148&units=metric',
+          'headers': {
+          }
+        };
+        request(options, function (error, response) {
+          if (error) throw new Error(error);
+          //console.log(response[1][1]);
+         // console.log(response.body[1]);
+         // weathers=(response.body[1]).text;
+         // console.log(response.body.weather);
+         // weathers=response.body.weather;
+        console.log(response.body);
+        //weathers=response.weather[0].description;
+
+        
+
+
+        }
+        
+        );
+          //var weathers = response.weather[0].main;
+          //var weathers = response[1][1];
+          //weathers = response.body;
+
+
+
         const newContribution = new Contribution({
           title: sanitizeHtml(data.title),
           name: sanitizeHtml(data.name),                // sanitize user input
@@ -41,9 +84,10 @@ const Contributions = {
           country: sanitizeHtml(data.country),  // sanitize user input
           genre: sanitizeHtml(data.genre),
           likes: likes,   //added like for like button
+          weathers: weathers,
           contributor: user._id,
         });
-       
+
 
         await newContribution.save();
         return h.redirect("/report");
@@ -119,7 +163,7 @@ const Contributions = {
     }
   },
 
-// Like contribution method that adds 1 to star counter every time button is clicked
+  // Like contribution method that adds 1 to star counter every time button is clicked
   likeContribution: {
     auth: false,
     handler: async function (request, h) {
@@ -134,6 +178,11 @@ const Contributions = {
       });
     }
   },
+
+
+
+
+
 
 };
 

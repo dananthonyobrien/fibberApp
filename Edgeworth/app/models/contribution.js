@@ -13,6 +13,7 @@ const contributionSchema = new Schema({
   country: String,
   genre: String,
   likes: Number,
+  weathers: String,
   contributor: {
     type: Schema.Types.ObjectId,
     ref: "User",

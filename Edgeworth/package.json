@@ -25,6 +25,7 @@
     "lodash": "^4.17.21",
     "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^5.13.14",
+    "request": "^2.88.2",
     "sanitize": "^2.1.0",
     "sanitize-html": "^2.3.3"
   },

@@ -10,7 +10,7 @@
 
 --->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
   var settings = {
     "async": true,
@@ -21,12 +21,12 @@
 
   $.ajax(settings).done(function (response) {
     console.log(response);
-    var content6 = response.weather[0].main;
+    var weather = response.weather[0].main;
 
-    $("#weather").append(content6);
+    $("#weather").append(weather);
 
   });
-</script>
+</script>-->
 
 
 
@@ -71,14 +71,14 @@
           <br>"What if we go on an adventure to find {{food}}?" {{teddyName}} loved {{food}}.
           <br>{{teddyName}}'s ears twitched. "I'm listening".
           <br>"The moon is made of {{food}}", said {{name}}. "What is the weather like, Co-Pilot {{teddyName}}?"
-          <br> "It's <span id="weather"></span>", {{teddyName}} said, peering out the window. 
+          <br> "It's <!--<span id="weather"></span>-->{{weathers}}", {{teddyName}} said, peering out the window. 
           <br>"Good. 3-2-1. Blastoff!". The bed flew out through the window and soared above the house. As they went higher and higher they could see the school and the park, and when they were higher still the sea and the mountains. While they gazed down at the world below, they did not see the moon coming until they crash landed on it.
           <br>{{teddyName}} landed with his face in the dust and let out a groan. "Oh no {{teddyName}}, are you okay, where are you hurt?" {{teddyName}} looked up and said, "It doesn't taste like {{food}} at all!" 
           <br>"Or well", said {{name}}, "maybe it is Mars that tastes like {{food}}."
           <br>"But now it is time for sleep", said Daddy, coming in to tuck in {{name}} and {{teddyName}} and to turn off the light.
         </p>
 
-    <p>Image: <img class="story-image-url" src=""></span></p>
+    <p><img class="story-image-url" width="300" src=""></span></p>
 
 
         <h4>The End</h4>
