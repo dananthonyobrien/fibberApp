@@ -1,24 +1,93 @@
 <!-- List of POI contributions -->
-<div class=" uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow">
-  <img src="images/edgeworth-logo.png">
 
+<!---  API taking readings from Open Weather App using ajax 
+
+
+
+
+
+
+
+--->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.openweathermap.org/data/2.5/weather?q=cork&appid=286e86f2a2706bfb9f508eedc061b148&units=metric",
+    "method": "GET"
+  }
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+    var content6 = response.weather[0].main;
+
+    $("#weather").append(content6);
+
+  });
+</script>
+
+
+
+<div class=" uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow">
+
+ 
 
   {{#each contributions}}
-  <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">
+
+  <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow uk-card-hover uk-card-secondary">
+
+
+
+<ul uk-accordion="multiple: true">
+    <li class="uk-open">
+        <a class="uk-accordion-title" href="#"> <h2> {{title}} </h2></a>
+        <div class="uk-accordion-content">
+
+
+
+  <!--<div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">-->
     <!-- Added extra pair of curly brackets for cross-site scripting test-->
-    <h2>{{{name}}}</h2>
+    <!--<h2>{{title}}</h2>-->
     <!-- Added edit, delete, and like buttons -->
     <a href="/edit-contribution/{{_id}}" uk-icon="pencil"></a><a href="/delete-contribution/{{_id}}" uk-icon="trash"><a
         href="/like-contribution/{{_id}}" uk-icon="star">{{likes}}</a>
-      <p>{{type}}</p>
-      <p class="uk-text-left">{{description}}</p>
-      <p>Location: {{location}}</p>
-      <td>Contributor: {{contributor.firstName}} {{contributor.lastName}}</td>
-  </div>
+      
+      <p>{{bio}}</p>
+      <h4>A {{genre}} story</h4>      
+      <h4>by {{contributor.firstName}} <!--{{contributor.lastName}}--></h4>      
+
+
+  <!--</div>-->
+ <!-- <div class="uk-margin-large uk-card uk-card-default uk-card-body uk-box-shadow">-->
+
+
+        <p class="uk-text-left">Once upon a time, {{age}}-year-old {{name}} and {{teddyName}} {{teddyType}} were supposed to be asleep in their home in {{country}}. 
+          <br>"Psst! Are you awake?" {{name}} asked {{teddyName}}.
+          <br>"No", {{teddyName}} groaned.
+          <br>"Let's have an adventure!" {{name}} cried.
+          <br>"No, we'll get in trouble".
+          <br>"What if we go on an adventure to find {{food}}?" {{teddyName}} loved {{food}}.
+          <br>{{teddyName}}'s ears twitched. "I'm listening".
+          <br>"The moon is made of {{food}}", said {{name}}. "What is the weather like, Co-Pilot {{teddyName}}?"
+          <br> "It's <span id="weather"></span>", {{teddyName}} said, peering out the window. 
+          <br>"Good. 3-2-1. Blastoff!". The bed flew out through the window and soared above the house. As they went higher and higher they could see the school and the park, and when they were higher still the sea and the mountains. While they gazed down at the world below, they did not see the moon coming until they crash landed on it.
+          <br>{{teddyName}} landed with his face in the dust and let out a groan. "Oh no {{teddyName}}, are you okay, where are you hurt?" {{teddyName}} looked up and said, "It doesn't taste like {{food}} at all!" 
+          <br>"Or well", said {{name}}, "maybe it is Mars that tastes like {{food}}."
+          <br>"But now it is time for sleep", said Daddy, coming in to tuck in {{name}} and {{teddyName}} and to turn off the light.
+        </p>
+
+    <p>Image: <img class="story-image-url" src=""></span></p>
+
+
+        <h4>The End</h4>
+
+<!--</div> -->
+</div>
+
+</div>
   {{/each}}
 
-  <a href="/home">
-    <i class="fas fa-vial fa-3x" style="color:rgb(44, 148, 139)" title="Add" pos="bottom" uk-tooltip></i>
-
-  </a>
+ 
 </div>

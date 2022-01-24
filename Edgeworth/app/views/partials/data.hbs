@@ -1,7 +1,58 @@
 <!-- <div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large"> -->
 <!---  API taking readings from Open Weather App using ajax --->
 
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+//var request = require('request');
+//var options = {
+//  'method': 'GET',
+//
+//  'url': '',
+ // 'headers': {
+ // }
+//};
+//request(options, function (error, response) {
+ // if (error) throw new Error(error);
+ // console.log(response.body);
+//});
+
+var settingsUnsplash = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.unsplash.com/photos/random?client_id=viDjCrfXcegOSN_Jqlt1PaZZDBV6pvw3xPbWyoTTmPY&query=cat",
+    "method": "GET"
+  }
+
+  $.ajax(settingsUnsplash).done(function (response) {
+    console.log(response);
+
+    var contentImage = response.urls.raw;
+    var contentImageURL = response.urls.regular;
+
+    var contentImageCredit = response.user.name;
+    var contentImageDescription = response.description;
+    var contentImageAltDescription = response.alt_description;
+
+
+    const storyImageURL = document.getElementsByClassName('story-image-url')[0];
+    $("#storyImageURL").append(contentImageURL);
+    storyImageURL.setAttribute('src', contentImageURL)
+
+
+
+    $("#storyImage").append(contentImage);
+    $("#storyImageCredit").append(contentImageCredit);
+    $("#storyImageDescription").append(contentImageDescription);
+    $("#storyImageAltDescription").append(contentImageAltDescription);
+
+
+  });
+
+  </script> 
 <script>
   var settings = {
     "async": true,
@@ -16,10 +67,13 @@
     var content1 = response.main.temp;
     var content2 = response.main.humidity;
     var content3 = response.main.pressure;
+    var content6 = response.weather[0].main;
+
     $("#windSpeed").append(content);
     $("#temperature").append(content1);
     $("#humidity").append(content2);
-    $("#pressure").append(content3)
+    $("#pressure").append(content3);
+    $("#weather").append(content6);
 
   });
 </script>
@@ -40,7 +94,6 @@
   $.ajax(settings1).done(function (response1) {
     console.log(response1);
     var content4 = response1.response[0].moon.phase.name;
-    //var capitalise = content4.toUpperCase();
     var content5 = response1.response[0].sun.riseISO;
     var justTime = content5.slice(11,16);
     $("#moonPhase").append(content4);
@@ -54,16 +107,123 @@
 </script>
 
 
+<!--<script>
+
+  // Moon phase taken via API from Aeris Weather
+  // Dot and bracket notation used to access object within array within object
+  var settings2 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.openai.com/v1/engines/davinci/completions",
+    "method": "GET"
+
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.setRequestHeader("Authorization", "Bearer $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");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+
+var data = `{
+  "prompt": "Topic: Jungle Two-Sentence Children's Adventure Story: The cats had escaped once more and it was up to 5 year old Detective Molly to track them down",
+  "temperature": 0.5,
+  "max_tokens": 60,
+  "top_p": 1.0,
+  "frequency_penalty": 0.5,
+  "presence_penalty": 0.0,
+  "stop": ["###"]
+}`;
+
+xhr.send(data);
+
+
+$.ajax(settings2).done(function (response1) {
+    console.log(response2);
+    var content10 = response2;
+    //var capitalise = content4.toUpperCase();
+    $("#GPT3response").append(content10);
+  }
+
+  });
+</script> -->
+
+
+<!--<script>
+  var settings5 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://api.openai.com/v1/engines/davinci/completions",
+    "method": "GET",
+    "headers": {"Authorization", "Bearer $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"}
+
+  }
+
+  $.ajax(settings).done(function (response10) {
+    console.log(response10);
+    //var content10 = response10;
+    //$("#GPT3output").append(content10)
+
+  });
+</script> -->
+
+
+<script>
+
+const got = require('got');
+const prompt = `I think therefore I... `;
+
+(async () => {
+  //const url = 'https://api.openai.com/v1/engines/davinci/completions';
+  const params = {
+    "prompt": prompt,
+    "max_tokens": 60,
+    "temperature": 0.7,
+    "frequency_penalty": 0.5
+  };
+  const headers = {
+    //'Authorization': `Bearer ${process.env.OPENAI_SECRET_KEY}`,
+    'Authorization': `Bearer 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`,
+
+  };
+const response = await got.post(url, { json: params, headers: headers }).json();
+    output = `${prompt}${response.choices[0].text}`;
+    console.log(output);
+    var gpt3 = output;
+    $("#gpt3").append(gpt3);
+
+
+  /*try {
+    const response = await got.post(url, { json: params, headers: headers }).json();
+    //output = `${prompt}${response.choices[0].text}`;
+    console.log(response);
+    var GPT3 = output;
+    $("#GPT3").append(response)
+  } catch (err) {
+    console.log(err);
+  } */
+})();
+</script>
 
 
 
 
+<div class="uk-margin uk-card-default uk-card-body uk-box-shadow uk-text-center uk-animation-slide-right" uk-sticky>
+  <legend class="uk-legend uk-text-center"><b></b></legend>
+<div>
+  <!--<p>Image: <span id="storyImage"></span></p>-->
+    <!--<p>Image: <img src="https://images.unsplash.com/photo-1601850844626-3d1650562a43?ixid=MnwyOTQxMjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NDMwNDEyNzg&ixlib=rb-1.2.1"></span></p>-->
+    <p>Image: <img class="story-image-url" src=""></span></p>
+
+  <!--<p>Image Credit: <span id="storyImageCredit"></span></p>
+  <p>Image Description: <span id="storyImageDescription"></span></p>
+  <p>Image Alt Description: <span id="storyImageAltDescription"></span></p>-->
 
 
 
-
-<div class="uk-margin uk-card-default uk-card-body uk-box-shadow uk-text-left" uk-sticky>
-  <legend class="uk-legend uk-text-center"><b>Data Dashboard</b></legend>
+<p>Weather: <span id="weather"></span></p>
+  </div>
   <div
     uk-tooltip="title: Did you know: Irish scientist John Tyndall discovered that the Earth's atmosphere is kept warm by carbon dioxide and water vapour">
     Temperature: <span id="temperature"></span> &#176;C </div>
@@ -81,7 +241,26 @@
     <div
     uk-tooltip="title: Did you know: the Irish company Captec designed the software for the measurement instruments onboard the NASA/ESA Solar Orbiter satellite, now on its way to the Sun">
      Sunrise: <span id="sunset"></span></div>
+     <div
+    uk-tooltip="title: Did you know: the Irish company Captec designed the software for the measurement instruments onboard the NASA/ESA Solar Orbiter satellite, now on its way to the Sun">
+     Weather: <span id="weather"></span></div>
+     <div
+    uk-tooltip="title: Did you know: the Irish company Captec designed the software for the measurement instruments onboard the NASA/ESA Solar Orbiter satellite, now on its way to the Sun">
+     GPT3 Response: <span id="gpt3"></span></div>
   <div>
-    <img width="350" src="images/ireland-rock.png">
-  </div>
+
+
+
+    <img width="200" class="uk-animation-kenburns" src="images/fibber-owl-eyes-down.png">
+  <!--</div>-->
+
+<h4>Wow, that's a great story! Click below to make another story with Fibber! Or maybe you would like to write your own story now from start to finish? If so, grab a pen and paper and off you go! Remember, Roald Dahl said, "Ideas come from little things..."</h4>
+
+<a href="/home">
+    <i class="fas fa-pen fa-3x" style="color:rgb(165, 64, 165, 0.856)" title="New" pos="bottom" uk-tooltip="Scribble another story!"></i>
+
+  </a>
+
+
+
   </div>

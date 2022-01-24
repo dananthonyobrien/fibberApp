@@ -1,48 +1,166 @@
 <!---<div class="uk-margin uk-width-2xlarge uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
    <legend class="uk-legend">Welcome: {{user.firstName}} {{user.lastName}}</legend> 
 </div>--->
-<div>
+<!--<div>
   <form class="uk-form-stacked" action="/contribute" method="POST">
       <div>
-        <legend class="uk-legend">Contribute an Irish Scientist or Place of Scientific Interest</legend>
+        <legend class="uk-legend">Add novel details</legend>
         <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Name</label>
+          <label class="uk-form-label" for="form-stacked-text">Title</label>
           <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name" placeholder="Name of scientist or place">
+            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="title" placeholder="What is the name of your book?">
           </div>
         </div>
         <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-text">Type</label>
+          <label class="uk-form-label" for="form-stacked-text">Protagonist</label>
           <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" type="string" name="type" placeholder= "Person or Place" readonly="true">
+            <input class="uk-input" id="form-stacked-text" type="string" minlength="2" maxlength="30" name="name" placeholder="Give your main character a name">
+          </div>
+        </div>
+        <div class="uk-margin">
+        <label class="uk-form-label" for="form-stacked-text">Pronoun</label>
+          <div class="uk-form-controls">
+            <select class="uk-select" id="form-stacked-select" type="string" name="type" placeholder= "Choose their gender" readonly="true">
               <option></option>
-              <option>Person</option>
-              <option>Place</option>
-              <option>Other</option>
+              <option>her</option>
+              <option>their</option>
+              <option>his</option>
             </select>
           </div>
           </div>
       <div class=" uk-margin">
-        <div class="uk-form-label">Description</div>
+        <div class="uk-form-label">Country</div>
         <div class="uk-form-controls">
-            <input class="uk-input" id="form-stacked-text" type="string" name="description" placeholder="Description of scientist or place">
+            <input class="uk-input" id="form-stacked-text" type="string" name="country" placeholder="Where are they from?">
         </div>
       </div>
       <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-text">Location</label>
+        <label class="uk-form-label" for="form-stacked-text">Genre</label>
           <div class="uk-form-controls">
-            <select class="uk-select" id="form-stacked-select" type="string" name="location" placeholder= "location" readonly="true">
+            <select class="uk-select" id="form-stacked-select" type="string" name="genre" placeholder= "What type of novel is this anyway?" readonly="true">
               <option></option>
-              <option>Munster</option>
-              <option>Connaught</option>
-              <option>Ulster</option>
-              <option>Leinster</option>
+              <option>Historical</option>
+              <option>Horror</option>
+              <option>Detective</option>
+              <option>Romance</option>
             </select>
           </div>
         <div class="uk-margin">
-          <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Contribute</button>
+          <button class="submit uk-button uk-button-primary uk-button-large uk-width-1-1">Create</button>
         </div>
       </div>
     </div>
   </form>
+</div>-->
+
+
+<div class="uk-child-width-1-2 uk-text-center" uk-grid>
+
+  <div>
+    <div class="uk-card uk-card-default uk-text-purple uk-card-body uk-background-cover"
+      data-src="images/line-paper.png" uk-img>
+
+
+      <form class="uk-form-stacked" action="/contribute" method="POST">
+        <div>
+          <legend class="uk-legend">
+            <h2><i>Scribbler </i> </h2>
+          </legend>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text" uk-tooltip="Give your story a name!"><i>Story
+                Title</i></label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" name="title"
+                placeholder="The Magic Pineapple">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="Give your hero a name, Mandy, Andy, anything really, even your own name!"><i>Hero/ine name</i>
+            </label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" name="name" placeholder="Alex">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="How old is your hero/ine? Pick an age from 1 to 99 and beyond!"><i>Hero/ine age</i></label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" name="age" placeholder="five and a half">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="Pick a name for the hero/ine's teddy sidekick!"><i>Teddy name</i></label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" name="teddyName" placeholder="Fluffy">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="What type of teddy is it? A bear, rabbit, fox? You decide!"><i>Teddy type</i></label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" name="teddyType" placeholder="bear">
+            </div>
+          </div>
+
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="peanuts, raisins, carrots, you decide what food will appear in your story"><i>Food</i></label>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" name="food" placeholder="raisins">
+            </div>
+          </div>
+          <div class=" uk-margin">
+            <div class="uk-form-label" uk-tooltip="New York, London, Bandon, wherever you like!"><i>Setting</i></div>
+            <div class="uk-form-controls">
+              <input class="uk-input" id="form-stacked-text" type="string" name="country" placeholder="Waterford">
+            </div>
+          </div>
+          <div class="uk-margin">
+            <label class="uk-form-label" for="form-stacked-text"
+              uk-tooltip="Would you like an adventure in space, under the sea,  in the jungle, or in a fairy tale?"><i>Story
+                Type</i></label>
+            <div class="uk-form-controls">
+              <select class="uk-select" id="form-stacked-select" type="string" name="genre" placeholder="space"
+                readonly="true">
+                <option></option>
+                <option>Space Adventure</option>
+                <option>Sea Voyage</option>
+                <option>Jungle Explorer</option>
+                <option>Fairy Tale</option>
+              </select>
+
+            </div>
+            <div class="uk-margin">                              
+
+              <button class="submit uk-button uk-button-link">
+                <img width="400" data-src="images/feather-no-background.png" uk-img>
+                </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <div>
+    <div class="uk-child-width uk-text-center" uk-grid>
+      <div>
+        <div class="uk-card uk-card-body uk-animation-slide-right">
+
+
+          <h3>Welcome to Fibber! I'm Ollie the Owl and I'll guide you through making your very own story! This is the
+            Scribbler page. Add your story ideas here then click Scribble! to create your story.</h3>
+          <img width="data-width" src="images/fibber-owl-eyes-centre.png">
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
 </div>
