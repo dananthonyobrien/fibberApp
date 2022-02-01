@@ -14,6 +14,7 @@ const contributionSchema = new Schema({
   genre: String,
   likes: Number,
   weathers: String,
+  image: String,
   contributor: {
     type: Schema.Types.ObjectId,
     ref: "User",

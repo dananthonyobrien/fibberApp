@@ -6,53 +6,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script>
-//var request = require('request');
-//var options = {
-//  'method': 'GET',
-//
-//  'url': '',
- // 'headers': {
- // }
-//};
-//request(options, function (error, response) {
- // if (error) throw new Error(error);
- // console.log(response.body);
-//});
 
-var settingsUnsplash = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://api.unsplash.com/photos/random?client_id=viDjCrfXcegOSN_Jqlt1PaZZDBV6pvw3xPbWyoTTmPY&query=cat",
-    "method": "GET"
-  }
-
-  $.ajax(settingsUnsplash).done(function (response) {
-    console.log(response);
-
-    var contentImage = response.urls.raw;
-    var contentImageURL = response.urls.regular;
-
-    var contentImageCredit = response.user.name;
-    var contentImageDescription = response.description;
-    var contentImageAltDescription = response.alt_description;
-
-
-    const storyImageURL = document.getElementsByClassName('story-image-url')[0];
-    $("#storyImageURL").append(contentImageURL);
-    storyImageURL.setAttribute('src', contentImageURL)
-
-
-
-    $("#storyImage").append(contentImage);
-    $("#storyImageCredit").append(contentImageCredit);
-    $("#storyImageDescription").append(contentImageDescription);
-    $("#storyImageAltDescription").append(contentImageAltDescription);
-
-
-  });
-
-  </script> 
 <script>
   var settings = {
     "async": true,
@@ -254,10 +208,10 @@ const response = await got.post(url, { json: params, headers: headers }).json();
     <img width="200" class="uk-animation-kenburns" src="images/fibber-owl-eyes-down.png">
   <!--</div>-->
 
-<h4>Wow, that's a great story! Click below to make another story with Fibber! Or maybe you would like to write your own story now from start to finish? If so, grab a pen and paper and off you go! Remember, Roald Dahl said, "Ideas come from little things..."</h4>
+<h4>Great story! Click the feather to make another with Fibber! Or grab a pen and paper and write your own! Remember, Roald Dahl said, "Ideas come from little things..."</h4>
 
 <a href="/home">
-    <i class="fas fa-pen fa-3x" style="color:rgb(165, 64, 165, 0.856)" title="New" pos="bottom" uk-tooltip="Scribble another story!"></i>
+                <img width="400" data-src="images/feather-no-background.png" uk-img>
 
   </a>
 

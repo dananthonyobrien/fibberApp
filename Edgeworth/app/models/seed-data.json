@@ -29,11 +29,14 @@
   "contributions": {
     "_model": "Contribution",
     "one": {
-      "title": "Orlando: A Novel",
-      "name": "Orlando",
-      "type": "They",
-      "description": "England",
-      "location": "Historical",
+      "title": "Cats in Space",
+      "name": "Jamie",
+      "age": "4",
+      "teddyName": "Henry",
+      "teddyType": "Hippo",
+      "food": "cheese",
+      "country": "Wexford",
+      "genre": "Space Adventure",
       "likes": 5,
       "contributor": "->users.frank"
     }
