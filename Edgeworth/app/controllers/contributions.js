@@ -8,7 +8,6 @@ const Joi = require("@hapi/joi");
 const Boom = require("@hapi/boom");
 var likes = 0;
 //var imageUrl = "No image"
-//var image = "https://images.unsplash.com/photo-1586410074293-91d01ca0db5c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyOTQxMjB8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NDMzOTAxODc&ixlib=rb-1.2.1&q=80&w=400";
 //var weathers = "Not working";
 const jsdom = require('jsdom');
 const dom = new jsdom.JSDOM("");
