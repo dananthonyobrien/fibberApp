@@ -29,13 +29,13 @@
 </script>-->
 
 
-<script>
+<!--<script>
 
 const got = require('got');
 const prompt = `2 sentence children's bedtime story: \n`;
 
 (async () => {
-  const url = 'https://api.openai.com/v1/engines/davinci/completions';
+  const url = 'https://api.openai.com/v1/engines/text-davinci-001/completions';
   const params = {
     "prompt": prompt,
     "max_tokens": 160,
@@ -43,7 +43,7 @@ const prompt = `2 sentence children's bedtime story: \n`;
     "frequency_penalty": 0.5
   };
   const headers = {
-    'Authorization':  'Bearer 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' ,//`Bearer ${process.env.OPENAI_SECRET_KEY}`,
+    'Authorization':  `Bearer ${process.env.OPENAI_SECRET_KEY}`,
   };
 
   try {
@@ -54,15 +54,78 @@ const prompt = `2 sentence children's bedtime story: \n`;
     console.log(err);
   }
 
+
+  const openAiResponse = document.getElementsByClassName('open-ai-output')[0];
+    //$("#storyImageURL").append(contentImageURL);
+
     $("#openAiOutput").append(output);
+   // const openAIResponse = document.getElementsByClassName('story-image-url')[0];
+
+</script>
+-->
+
+<script>
+
+var form = new FormData();
+form.append("prompt", "The future will be");
+form.append("max_tokens", "5");
+form.append("n", "1");
+form.append("temperature", "1");
+form.append("top_p", "1");
+form.append("stop", "\\n");
+form.append("presence_penalty", "");
+form.append("frequency_penalty", "");
+form.append("engine", "text-davinci-001");
+
+
+var settingsGpt3 = {
+    "async": true,
+    "headers": {
+      "Authorization": "Bearer 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"},
+    "crossDomain": true,
+    "url": "https://api.openai.com/v1/engines/text-davinci-001/completions",
+    "method": "POST",
+    "timeout": 0,
+    "contentType": false,
+    "data": form
+    //"data": YourData,
+    //"success": function(data) {
+    //console.log("success:" + data);
+    //}
+  }
+
+  $.ajax(settingsGpt3).done(function (response) {
+    console.log(response);
+
+    var contentStory = response.choices[0].text;
+    //var contentImageURL = response.urls.regular;
+
+    //var contentImageCredit = response.user.name;
+    //var contentImageDescription = response.description;
+   // var contentImageAltDescription = response.alt_description;
+
+
+    //const contentStory = document.getElementsByClassName('story-image-url')[0];
+    $("#contentStory").append(contentStory);
+    //storyImageURL.setAttribute('src', contentImageURL)
+
+
+
+  
+
+
+  });
 
 
 })();
 
+
+
+
   </script>
 
-<script>
 
+<script> 
 
   var settingsUnsplash = {
     "async": true,
@@ -146,9 +209,7 @@ const prompt = `2 sentence children's bedtime story: \n`;
               <br>"What if we go on an adventure to find {{food}}?" {{teddyName}} loved {{food}}.
               <br>{{teddyName}}'s ears twitched. "I'm listening".
               <br>"The moon is made of {{food}}", said {{name}}. "What is the weather like, Co-Pilot {{teddyName}}?"
-              <br> "It's <span id="weather"></span>
-              <p id="weathers"></p>
-              <!--<span id="weather"></span>-->{{weathers}}", {{teddyName}} said, peering out the window.
+              <br> "{{weather}}", {{teddyName}} said, peering out the window.
               <br>"Good. 3-2-1. Blastoff!". The bed flew out through the window and soared above the house. As they went
               higher and higher they could see the school and the park, and when they were higher still the sea and the
               mountains. While they gazed down at the world below, they did not see the moon coming until they crash
@@ -160,9 +221,11 @@ const prompt = `2 sentence children's bedtime story: \n`;
               turn off the light.
             </p>
 
-              <p>Output: <span id="openAiOutput"><span></p>
+              <p>Output: <span id="contentStory"></span> {{story}} <span id="openAiOutput"><span> <span class="open-ai-output"></p>
 
-            <p><img class="story-image-url" width="300" src=""></span></p>
+            <!--<p><img class="story-image-url" width="300" src=""></span></p>-->
+            <p><img class="{{imageUrlReturn}}" width="300" src=""></span></p>
+
 
 
             <h4>The End</h4>
