@@ -13,10 +13,14 @@ const contributionSchema = new Schema({
   country: String,
   genre: String,
   likes: Number,
+  weather: String,
+  image: String,
+  story: String,
   contributor: {
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-});
+}
+);
 
 module.exports = Mongoose.model("Contribution", contributionSchema);
